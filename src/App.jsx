@@ -1,10 +1,11 @@
 import './App.css'
+import AppRouter from './routes/AppRouter'
 
 function App() {
 
   return (
     <>
-      <h1 className='bg-blue-500'>Selamat datang</h1>
+    <AppRouter/>
     </>
   )
 }
