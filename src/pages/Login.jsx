@@ -68,7 +68,7 @@ function Login () {
       </div>
 
       <div className="flex-1">
-        <h2 className="text-center text-lg font-medium mb-6">Login</h2>
+        <h2 className="text-center text-lg font-medium mb-6 ">Login</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input 
           type="email"
@@ -76,7 +76,7 @@ function Login () {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition  "
+          className="bg-[#b6ceb4] rounded-lg  px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition  "
           required
           />
           <input 
@@ -85,7 +85,7 @@ function Login () {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition"
+          className="bg-[#b6ceb4] rounded-lg  px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition"
           required
           />
 
@@ -98,13 +98,13 @@ function Login () {
           <button 
           type="submit"
           disabled={loading}
-          className={`w-full py-3 rounded-md text-white font-medium transition ${
+          className={`w-full py-3 rounded-md  text-white font-medium transition ${
             loading ? "bg-gray-500" : "bg-[#626a5d] hover:bg-[#2f342d]"
           }`}
           > {loading ? "Memproses..." : "Login"}
           </button>
           <div className="mt-4 text-center">
-          <p className="text-sm">
+          <p className="text-sm ">
             Belum Punya Akun? {" "}
             <Link to="/register" className="text-black font-medium underline">
             Daftar

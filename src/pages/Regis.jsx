@@ -43,7 +43,7 @@ function Regis() {
         </div>
 
         <div className="flex-1 px-10">
-          <h2 className="text-xl font-medium mb-6 text-center">Register</h2>
+          <h2 className="text-xl font-medium mb-6 text-center ">Register</h2>
 
           {error && (
             <p className="text-red-500 text-sm text-center mb-3">{error}</p>
@@ -57,7 +57,7 @@ function Regis() {
               value={form.username}
               onChange={handleChange}
               required
-              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition"
+              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080]  focus:ring-2 focus:ring-[#55624C] outline-none transition"
             />
             <input
               type="email"
@@ -66,7 +66,7 @@ function Regis() {
               value={form.email}
               onChange={handleChange}
               required
-              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition"
+              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080]  focus:ring-2 focus:ring-[#55624C] outline-none transition"
             />
             <input
               type="password"
@@ -75,16 +75,16 @@ function Regis() {
               value={form.password}
               onChange={handleChange}
               required
-              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition"
+              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080]  focus:ring-2 focus:ring-[#55624C] outline-none transition"
             />
             <hr className="border-gray-400 mb-3 "/>
             <button
               type="submit"
-              className="bg-[#626a5d] text-white py-2 rounded-lg hover:bg-[#2f342d] transition"
+              className="bg-[#626a5d] text-white py-2   rounded-lg hover:bg-[#2f342d] transition"
             >
               Daftar
             </button>
-            <div className="mt-4 text-center">
+            <div className="mt-4 text-center ">
           <p className="text-sm">
             Sudah Punya Akun?{" "}
             <Link to="/login" className="text-black font-medium underline">
