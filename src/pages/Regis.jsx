@@ -56,7 +56,8 @@ function Regis() {
               placeholder="Username"
               value={form.username}
               onChange={handleChange}
-              className="bg-[#b6ceb4] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#55624C] outline-none transition"
+              required
+              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition"
             />
             <input
               type="email"
@@ -64,7 +65,8 @@ function Regis() {
               placeholder="Email"
               value={form.email}
               onChange={handleChange}
-              className="bg-[#b6ceb4] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#55624C] outline-none transition"
+              required
+              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition"
             />
             <input
               type="password"
@@ -72,21 +74,25 @@ function Regis() {
               placeholder="Password"
               value={form.password}
               onChange={handleChange}
-              className="bg-[#b6ceb4] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#55624C] outline-none transition"
+              required
+              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition"
             />
+            <hr className="border-gray-400 mb-3 "/>
             <button
               type="submit"
               className="bg-[#626a5d] text-white py-2 rounded-lg hover:bg-[#2f342d] transition"
             >
               Daftar
             </button>
-          </form>
-          <p className="text-sm text-center mt-4">
+            <div className="mt-4 text-center">
+          <p className="text-sm">
             Sudah Punya Akun?{" "}
             <Link to="/login" className="text-black font-medium underline">
               Masuk
             </Link>
           </p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
