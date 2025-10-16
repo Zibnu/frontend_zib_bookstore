@@ -25,7 +25,7 @@ function Regis() {
     setError("");
 
     try {
-      const res = await apiServices.post("/auth/register", form);
+      await apiServices.post("/auth/register", form);
       alert("Registrasi Berhasil Silahkan login");
       navigate("/login");
     } catch (error) {

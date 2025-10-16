@@ -7,18 +7,30 @@ import { Link } from "react-router-dom";
 
 function SectionBook() {
   const [books, setBooks] = useState([]);
-
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    apiServices.get("/books/all")
-    .then(res => {
+    const fetchBook = async () => {
+      setLoading(true)
+      try {
+      const res = await apiServices.get("/books/all")
       setBooks(res.data?.data.books || []);
-    })
-    .catch(err => {
-      console.error("Error Fetching Books", err);
-    });
+      } catch (error) {
+        console.error("Error Mengambil data Buku", error);
+        setError(error.message || "Gagal Mengambil Data Buku")
+      } finally{
+        setLoading(false)
+      }
+    }
+    fetchBook();
   }, [])
 
-  console.log(books)
+  if(loading) return <div className="text-center text-[#96A78D]">Loading Data Buku....</div>
+  if(error) return <div className="text-center text-red-700">Error : {error}</div>
+
+  
+  // console.log(books)
+  // console.log(error);
   return (
     <div className="w-full py-10 relative">
 

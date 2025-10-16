@@ -8,7 +8,6 @@ function Navbar () {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-
   const handleSearch = (e) => {
     e.preventDefault();
     if(searchQuery.trim()) {
@@ -43,10 +42,10 @@ function Navbar () {
 
       {/* Icons */}
       <div className="flex gap-4">
-        <Link to={token ? "/login" : "/cart"} className="p-2 rounded-md transition duration-200 hover:bg-[#9BB99A]">
+        <Link to={ token ? "/cart" : "/login"} className="p-2 rounded-md transition duration-200 hover:bg-[#9BB99A]">
         <RiShoppingCartFill size={18}/>
         </Link>
-        <Link to={token ? "/login" : "/profile"} className="p-2 rounded-md transition duration-200 hover:bg-[#9BB99A]">
+        <Link to={ token ? "/profile" : "/login"} className="p-2 rounded-md transition duration-200 hover:bg-[#9BB99A]">
         <MdAccountCircle size={18}/>
         </Link>
       </div>
