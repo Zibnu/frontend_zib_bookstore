@@ -1,9 +1,10 @@
 import HeroCarousel from "../../components/HeroCarousel"
+import SectionBook from "./SectionBook"
 function Home() {
   return (
     <div>
       <HeroCarousel/>
-      <h1 className="text-center flex flex-col">Selamat datang</h1>
+      <SectionBook/>
     </div>
   )
 }
