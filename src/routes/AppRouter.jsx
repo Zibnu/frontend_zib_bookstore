@@ -3,6 +3,7 @@ import UserLayout from "../layouts/userLayout";
 import Regis from "../pages/Regis";
 import Login from "../pages/Login";
 import Home from "../pages/home/home";
+import DetailBook from "../pages/DetailBook";
 
 
 export default function AppRouter () {
@@ -10,6 +11,7 @@ export default function AppRouter () {
     <Routes>
       <Route element={<UserLayout/>}>
         <Route path="/" element={<Home/>}></Route>
+        <Route path="/book/:id" element={<DetailBook/>}></Route>
       </Route>
 
       <Route path="/login" element={<Login/>}/>

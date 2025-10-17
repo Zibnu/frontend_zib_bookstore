@@ -7,7 +7,7 @@ function BookCard({ image, title, price}) {
   };
   return (
     <div 
-    className="min-w-[140px] bg-[#f0f0f0] rounded-xl outline hover:shadow-lg transition-all duration-300 hover:translate-y-1 cursor-pointer flex-col">
+    className="min-w-[140px]  bg-[#f0f0f0] rounded-xl outline hover:shadow-lg transition-all duration-300 hover:translate-y-1 cursor-pointer flex flex-col h-full">
       <div className="w-full aspect-[3/4] overflow-hidden rounded-t-xl">
       <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
