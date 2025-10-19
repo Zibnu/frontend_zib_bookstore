@@ -4,7 +4,6 @@ import BookCard from "../../components/BookCard"
 import apiServices from "../../utils/api";
 import { Link } from "react-router-dom";
 
-
 function SectionBook() {
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(null);
@@ -54,7 +53,7 @@ function SectionBook() {
         <div className="flex-1 relative mt-12 z-20">
           {/* PC */}
           <div className="hidden md:grid grid-cols-5 gap-4 ">
-            { books.slice(0,13).map((book, index) => (
+            { books.slice(0,10).map((book, index) => (
               <Link key={index} to={`/book/${book.id_book}`}>
                 <BookCard
                 image={book.cover_path}
