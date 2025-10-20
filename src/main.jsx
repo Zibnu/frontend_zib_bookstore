@@ -14,12 +14,13 @@ createRoot(document.getElementById('root')).render(
       <Toaster
       position='top-center'
       toastOptions={{
+        duration : 1500,
         style : {
           background : 'rgba(255,255,255, 0.8)',
           backdropFilter : "blur(10px)",
           borderRadius : "12px",
           fontSize : "14px",
-          color : "#333"
+          color : "#333",
         }
       }}
       />

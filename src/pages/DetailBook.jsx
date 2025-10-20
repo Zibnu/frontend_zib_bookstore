@@ -44,7 +44,7 @@ const renderStars = (rating) => {
     }
     fetchBook();
   }, [id]);
-  console.log(book);
+  // console.log(book);
 
   useEffect( () => {
     const handleScroll = () => {

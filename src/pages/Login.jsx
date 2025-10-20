@@ -2,6 +2,7 @@ import  { Link, useNavigate } from "react-router-dom";
 import authImage from "../assets/images/hero auth.webp"
 import apiServices from "../utils/api";
 import { useState } from "react";
+import { toast } from "react-hot-toast"
 
 
 function Login () {
@@ -25,23 +26,23 @@ function Login () {
     setError("");
     setLoading(true);
     try {
-      console.log("Mengirim data", formData);
+      // console.log("Mengirim data", formData);
       const res = await apiServices.post("/auth/login", formData);
 
-      console.log("Response Backend", res.data)
+      // console.log("Response Backend", res.data)
       const token = res.data.data.token;
       const user = res.data.data.user.id_user
       const role = res.data.data.user.role
 
       if(!token) {
         console.error("Token Not Found in response");
-        setError("Login Gagal : token tidak ditemukan");
+        toast.error("Login Gagal : token tidak ditemukan");
         return;
       }
       localStorage.setItem("token", token);
       localStorage.setItem("userId", user)
 
-      alert ("login Berhasil");
+      toast.success("login Berhasil");
       if(role === "admin"){
         navigate("/admin/dashboard")
       }else {
@@ -49,7 +50,7 @@ function Login () {
       }
     } catch (error) {
       console.error("Error Login", error.response?.data || error.message);
-      setError(error.response?.data?.message || "Email atau Kata Sandi Salah");
+      toast.error(error.response?.data?.message || "Email atau Kata Sandi Salah");
     } finally {
       setLoading(false);
     }

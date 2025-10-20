@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authImage from "../assets/images/hero auth.webp";
 import apiServices from "../utils/api";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 function Regis() {
   const [form, setForm] = useState({
@@ -26,12 +27,12 @@ function Regis() {
 
     try {
       await apiServices.post("/auth/register", form);
-      alert("Registrasi Berhasil Silahkan login");
+      toast.success("Registrasi Berhasil Silahkan login");
       navigate("/login");
     } catch (error) {
       const message =
         error.response?.data?.message || "Gagal Melakukan Registrasi";
-      setError(message);
+      toast.error(message);
     }
   };
   return (
