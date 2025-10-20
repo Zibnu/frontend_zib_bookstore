@@ -13,9 +13,9 @@ function SideBarProfile() {
   }
 
   const menuItems = [
-    { label : "Transaksi", icon : <RiFileList3Line size={20}/>, path : "/profile/transaksi"},
+    { label : "Akun", icon : <RiUser3Line size={20}/>, path : "/profile/akun"},
     { label : "Ulasan", icon : <RiStarSmileLine size={20}/>, path : "/profile/ulasan"},
-    { label : "Akun", icon : <RiUser3Line size={20}/>, path : "/profile"},
+    { label : "Transaksi", icon : <RiFileList3Line size={20}/>, path : "/profile/transaksi"},
   ];
 
   return (

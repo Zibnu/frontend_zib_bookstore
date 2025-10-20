@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import apiServices from '../utils/api';
 import noReview from "../assets/images/tidak ada ulasan.png"
+import toast from 'react-hot-toast';
 
 function DetailBook() {
   const formatRupiah = (value) => {
@@ -30,7 +31,7 @@ const renderStars = (rating) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const [ showMiniCart, setShowMiniCart ] = useState(false)
-  const [ error, setError ] = useState(null);
+  // const [ error, setError ] = useState(null);
 
   useEffect(() => {
     const fetchBook = async ( ) => {
@@ -39,7 +40,7 @@ const renderStars = (rating) => {
         setBook(res.data.data || [])
       } catch (error) {
         console.error("Gagal Mengambil Detail Buku", error);
-        setError(error.message || "Gagal mengambil Data Detail Buku")
+        toast.error(error.message || "Gagal mengambil Data Detail Buku")
       }
     }
     fetchBook();
@@ -72,15 +73,15 @@ const renderStars = (rating) => {
           Authorization : `Bearer ${token}`
         }
       });
-      alert(`"${book.title}" Berhasil Ditambahkan Ke Keranjang`)
+      toast.success(`"${book.title}" Berhasil Ditambahkan Ke Keranjang`)
     } catch (error) {
       console.error("Gagal Menambahkan Ke keranjang",error);
-      setError( error.message,"Gagal Menambahkan ke Keranjang")
+      toast.error( error.message,"Gagal Menambahkan ke Keranjang")
     }
   }
 
-  if(error) return <div className="text-center text-red-700">ERROR : {error}</div>
-  if(!book) return <div className="text-center text-emerald-800">404</div>
+  // if(error) return <div className="text-center text-red-700">ERROR : {error}</div>
+  if(!book) return <div className="text-center text-emerald-800">Loading...</div>
 
   return (
     <>

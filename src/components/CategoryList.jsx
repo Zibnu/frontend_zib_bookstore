@@ -7,6 +7,7 @@ import sejarahIcon from "../assets/images/iconSejarah.png";
 import cerpenIcon from "../assets/images/iconCerpen.png";
 import { useEffect, useState } from "react";
 import apiServices from "../utils/api";
+import toast from "react-hot-toast";
 
 const iconMap = {
   Sejarah : sejarahIcon,
@@ -18,7 +19,7 @@ const iconMap = {
 };
 function CategoryList() {
   const [categories, setCategories] = useState([]);
-  const [error , setError] = useState(null)
+  // const [error , setError] = useState(null)
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ function CategoryList() {
         setCategories(res.data?.data || [])
       } catch (error) {
         console.error("Error Ketika mengambil Category", error);
-        setError(error.message || "Gagal Mengambil Testimony");
+        toast.error(error.message || "Gagal Mengambil Testimony");
       } finally {
         setLoading(false)
       }
@@ -39,7 +40,7 @@ function CategoryList() {
   // console.log(categories);
 
   if(loading) return <div className="text-center text-[#96A78D]">Loading data category .....</div>
-  if(error) return <div className="text-center text-red-700">ERROR : {error}</div>
+  // if(error) return <div className="text-center text-red-700">ERROR : {error}</div>
   
   return (
     <div className="w-full flex justify-center mt-8">

@@ -3,10 +3,11 @@ import IconBook from "../../assets/images/Buku Terlaris.png"
 import BookCard from "../../components/BookCard"
 import apiServices from "../../utils/api";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function SectionBook() {
   const [books, setBooks] = useState([]);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchBook = async () => {
@@ -16,7 +17,7 @@ function SectionBook() {
       setBooks(res.data?.data.books || []);
       } catch (error) {
         console.error("Error Mengambil data Buku", error);
-        setError(error.message || "Gagal Mengambil Data Buku")
+        toast.error(error.message || "Gagal Mengambil Data Buku")
       } finally{
         setLoading(false)
       }
@@ -25,7 +26,7 @@ function SectionBook() {
   }, [])
 
   if(loading) return <div className="text-center text-[#96A78D]">Loading Data Buku....</div>
-  if(error) return <div className="text-center text-red-700">Error : {error}</div>
+  // if(error) return <div className="text-center text-red-700">Error : {error}</div>
 
   
   // console.log(books)
@@ -36,7 +37,7 @@ function SectionBook() {
       {/* Header */}
       <div className="flex justify-between items-center mb-4 px-4">
         <h2 className="text-lg font-bold">Buku Terlaris</h2>
-        <Link to={"/kategory/terlaris"}>
+        <Link to={"/category/terlaris"}>
         <p
         className="text-sm text-[#96A78D] hover:underline cursor-pointer"
         >

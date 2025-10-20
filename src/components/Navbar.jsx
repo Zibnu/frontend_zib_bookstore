@@ -45,7 +45,7 @@ function Navbar () {
         <Link to={ token ? "/cart" : "/login"} className="p-2 rounded-md transition duration-200 hover:bg-[#9BB99A]">
         <RiShoppingCartFill size={18}/>
         </Link>
-        <Link to={ token ? "/profile" : "/login"} className="p-2 rounded-md transition duration-200 hover:bg-[#9BB99A]">
+        <Link to={ token ? "/profile/akun" : "/login"} className="p-2 rounded-md transition duration-200 hover:bg-[#9BB99A]">
         <MdAccountCircle size={18}/>
         </Link>
       </div>

@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Home from "../pages/home/home";
 import DetailBook from "../pages/DetailBook";
 import Profile from "../pages/Profile";
+import Transaction from "../pages/Transaction";
 
 
 export default function AppRouter () {
@@ -13,7 +14,8 @@ export default function AppRouter () {
       <Route element={<UserLayout/>}>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/book/:id" element={<DetailBook/>}></Route>
-        <Route path="/profile" element={<Profile/>}></Route>
+        <Route path="/profile/akun" element={<Profile/>}></Route>
+        <Route path="/profile/transaksi" element={<Transaction/>}></Route>
       </Route>
 
       <Route path="/login" element={<Login/>}/>
