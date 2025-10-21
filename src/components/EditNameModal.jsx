@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import apiServices from "../utils/api";
 import { toast } from "react-hot-toast"
+import { motion } from "framer-motion";
 
 function EditNameModal({ user, onClose, onSuccess}) {
   const [name, setName] = useState(user?.fullname ||"");
@@ -38,7 +39,10 @@ function EditNameModal({ user, onClose, onSuccess}) {
   }
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="bg-white w-full max-w-md rounded-xl shadow-md p-6 relative">
+      <motion.div 
+      initial={{opacity : 0, scale : 0.8}}
+      animate={{opacity : 1, scale : 1}}
+      className="bg-white w-full max-w-md rounded-xl shadow-md p-6 relative">
         <button
         onClick={onClose}
         className="absolute right-3 top-3 cursor-pointer hover:rotate-90"
@@ -59,11 +63,11 @@ function EditNameModal({ user, onClose, onSuccess}) {
         <button
         onClick={handleUpdateName}
         disabled={loading}
-        className="mt-4 w-full bg-[#96A78D] text-black py-2 rounded-md cursor-pointer hover:bg-[#96A78D] transition disabled:opacity-50"
+        className="mt-4 w-full bg-[#96A78D] text-black py-2 rounded-md cursor-pointer hover:bg-[#96A78Dre] transition disabled:opacity-50"
         >
           {loading ? "Menyimpan..." : "Simpan Perubahan"}
         </button>
-      </div>
+      </motion.div>
     </div>
   )
 }

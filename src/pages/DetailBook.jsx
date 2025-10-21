@@ -49,7 +49,7 @@ const renderStars = (rating) => {
 
   useEffect( () => {
     const handleScroll = () => {
-      if(window.scrollY > 90){
+      if(window.scrollY > 10){
         setShowMiniCart(true)
       } else {
         setShowMiniCart(false)
@@ -146,7 +146,7 @@ const renderStars = (rating) => {
       </div>
     </div>
       <div
-        className={`sticky bottom-0 left-0 w-full bg-white shadow-[0_-4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 ${
+        className={`sticky bottom-0 left-0 w-full bg-white shadow-[0_-4px_12px_rgba(0,0,0,0.08)] transition-all duration-100 ${
           showMiniCart ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
         } h-20 flex justify-between items-center px-4`}
       >

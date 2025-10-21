@@ -2,6 +2,7 @@ import { useState } from "react";
 import apiServices from "../utils/api";
 import { toast } from "react-hot-toast";
 import { MdClose } from "react-icons/md";
+import { motion } from "framer-motion";
 
 
 function EditPasswordModal({onClose, onSuccess}) {
@@ -35,7 +36,10 @@ function EditPasswordModal({onClose, onSuccess}) {
   }
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="bg-white w-full max-w-md rounded-xl shadow-md p-6 relative">
+      <motion.div 
+      initial={{opacity : 0, scale : 0.8}}
+      animate={{opacity : 1, scale : 1}}
+      className="bg-white w-full max-w-md rounded-xl shadow-md p-6 relative">
         <button 
         onClick={onClose}
         className="absolute right-3 top-3 cursor-pointer hover:rotate-90"
@@ -70,7 +74,7 @@ function EditPasswordModal({onClose, onSuccess}) {
           >
             {loading ? "Menyimpan..." : "Simpan Perubahan"}
           </button>
-      </div>
+      </motion.div>
     </div>
   )
 }

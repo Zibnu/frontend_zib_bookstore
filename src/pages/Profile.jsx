@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast"
 import SideBarProfile from '../components/SideBarProfile'
 import apiServices from '../utils/api'
 import { useEffect, useState } from 'react'
-import { FaPencilAlt } from "react-icons/fa";
+import { RiEdit2Line } from "react-icons/ri";
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -56,7 +56,7 @@ function Profile() {
             <button
             onClick={ () => setOpenEditName(true)} className='cursor-pointer'
             >
-              <FaPencilAlt size={15}/>
+              <RiEdit2Line size={15}/>
             </button>
           </div>
         </div>
@@ -71,7 +71,7 @@ function Profile() {
             <p className="text-gray-700">Kata Sandi</p>
             <p className="font-medium">******</p>
             <button onClick={ () => setOpenEditPassword(true)} className='cursor-pointer'>
-              <FaPencilAlt size={15}/>
+              <RiEdit2Line size={15}/>
             </button>
           </div>
         </div>
