@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { RiFileList3Line, RiUser3Line, RiStarSmileLine, RiLogoutCircleRLine } from "react-icons/ri";
+import { FaMapLocationDot } from "react-icons/fa6"
 import { toast } from "react-hot-toast";
 
 
@@ -16,6 +17,7 @@ function SideBarProfile() {
     { label : "Akun", icon : <RiUser3Line size={20}/>, path : "/profile/akun"},
     { label : "Ulasan", icon : <RiStarSmileLine size={20}/>, path : "/profile/ulasan"},
     { label : "Transaksi", icon : <RiFileList3Line size={20}/>, path : "/profile/transaksi"},
+    { label : "Alamat", icon : <FaMapLocationDot size={20}/>, path : "/profile/alamat"},
   ];
 
   return (

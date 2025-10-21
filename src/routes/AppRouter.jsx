@@ -7,6 +7,7 @@ import DetailBook from "../pages/DetailBook";
 import Profile from "../pages/Profile";
 import Transaction from "../pages/Transaction";
 import Review from "../pages/Review";
+import Address from "../pages/Address";
 
 export default function AppRouter () {
   return (
@@ -17,6 +18,7 @@ export default function AppRouter () {
         <Route path="/profile/akun" element={<Profile/>}></Route>
         <Route path="/profile/transaksi" element={<Transaction/>}></Route>
         <Route path="/profile/ulasan" element={<Review/>}></Route>
+        <Route path="/profile/alamat" element={<Address/>}></Route>
       </Route>
 
       <Route path="/login" element={<Login/>}/>

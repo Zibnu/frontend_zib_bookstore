@@ -18,7 +18,7 @@ function EditReviewModal({review, onSave, onClose}) {
           </h2>
           <button
           onClick={onClose}
-          className='text-gray-500 cursor-pointer hover:text-gray-700 text-xl font-bold'
+          className='text-gray-500 cursor-pointer hover:text-gray-700 text-xl'
           >
             <MdClose />
           </button>

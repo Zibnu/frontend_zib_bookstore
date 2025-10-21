@@ -11,6 +11,7 @@ function Review() {
   const [reviews, setReviews] = useState([]);
   const [editing, setEditing] = useState(null);
   const [deleting, setDeleting] = useState(null);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetchReviews();
@@ -30,11 +31,13 @@ function Review() {
         },
       });
       setReviews(data.data || []);
+      setLoading(false)
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Gagal Mendapatkan Review User"
       );
       console.error(error.response?.data?.message);
+      setLoading(false)
     }
   };
 
@@ -58,10 +61,12 @@ function Review() {
       );
       toast.success("Ulasan Diperbaharui");
       setEditing(null);
+      setLoading(false)
       fetchReviews();
     } catch (error) {
       toast.error(error.response?.data?.message || "Gagal Memperbarui Ulasan");
       console.error(error.response?.data?.message);
+      setLoading(false)
     }
   };
 
@@ -78,12 +83,16 @@ function Review() {
       });
       toast.success("Ulasan Berhasil Dihapus");
       setDeleting(null);
+      setLoading(false)
       fetchReviews();
     } catch (error) {
       toast.error(error.response?.data?.message || "Gagal Menghapus Ulasan");
       console.error(error.response?.data?.message);
+      setLoading(false)
     }
   };
+
+  if(loading) return <div className="text-center py-10 text-gray-400">Loading Transaksi....</div>
   return (
     <div className="min-h-screen flex bg-[#f5f5f5]">
       <SideBarProfile />

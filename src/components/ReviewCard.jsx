@@ -1,6 +1,5 @@
 import React from 'react'
-import { RiDeleteBin6Fill } from "react-icons/ri";
-import { RiEdit2Line } from "react-icons/ri";
+import { RiDeleteBin6Fill, RiEdit2Line } from "react-icons/ri";
 
 function ReviewCard({ review, onEdit, onDelete}) {
   const { book, rating ,comment, createdAt} = review;
@@ -45,12 +44,12 @@ function ReviewCard({ review, onEdit, onDelete}) {
       <div className="flex gap-3">
         <button 
         onClick={ () => onEdit(review)}
-        className="text-blue-500 hover:text-blue-700">
+        className="text-blue-500 cursor-pointer hover:text-blue-700">
           <RiEdit2Line size={20}/>
         </button>
         <button 
         onClick={() => onDelete(review)}
-        className="text-red-500 hover:text-red-700">
+        className="text-red-500 cursor-pointer hover:text-red-700">
           <RiDeleteBin6Fill size={20}/>
         </button>
       </div>
