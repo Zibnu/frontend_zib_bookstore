@@ -29,16 +29,19 @@ function DeleteAddressModal({isOpen, onClose, onSuccess , addressId}) {
   return (
     <AnimatePresence>
       { isOpen && (
-        <motion.div 
+        <motion.div
+        key="delete-modal"
         className="fixed inset-0 bg-black/40 flex items-center justify-center z-50"
-        initial={{scale : 0}}
+        initial={{opacity : 0}}
         animate={{opacity : 1}}
         exit={{opacity : 0}}
+        transition={{duration : 0.2}}
         >
           <motion.div 
           initial={{scale : 0.8, opacity : 0}}
           animate={{scale : 1, opacity : 1}}
           exit={{scale : 0.8, opacity : 0}}
+          transition={{duration : 0.2}}
           className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-sm"
           >
             <h2 className="text-lg font-semibold text-gray-800 mb-2">

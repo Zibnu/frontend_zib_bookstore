@@ -55,15 +55,17 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
+        key="edit-modal"
         className='fixed inset-0 bg-black/40 flex items-center justify-center z-50'
         initial={{opacity : 0}}
-        animate={{scale : 1}}
+        animate={{opacity : 1}}
         exit={{opacity : 0}}
         >
           <motion.div 
           initial={{scale : 0.8, opacity : 0}}
           animate={{scale : 1, opacity : 1}}
           exit={{scale : 0.8, opacity : 0}}
+          transition={{ duration : 0.2}}
           className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">
               Edit Alamat

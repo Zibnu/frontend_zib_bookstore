@@ -65,8 +65,8 @@ function Address() {
           <h2 className="text-2xl font-semibold text-gray-800">Daftar Alamat</h2>
           <button 
           onClick={() => setIsAddOpen(true)}
-          className="px-4 py-2 bg-[#96A78D] text-black text-sm rounded-lg hover:bg-[#7f9276] transition">
-            <FaPlus/> Tambah Alamat
+          className="px-4 py-2 bg-[#96A78D] curpoin text-black flex text-sm rounded-lg hover:bg-[#7f9276] transition cursor-pointer">
+            <FaPlus />
           </button>
         </div>
 
