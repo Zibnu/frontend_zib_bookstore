@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import apiServices from '../utils/api'
 import toast from 'react-hot-toast';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -13,6 +13,17 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
     street : "",
   });
 
+  useEffect(() => {
+    if(!isOpen) {
+      setFormData({
+        full_name : "",
+        phone : "",
+        provinces : "",
+        postal_code : "",
+        street : ""
+      })
+    }
+  }, [isOpen])
 
   const handleChange = (e) => {
     setFormData({
@@ -34,7 +45,14 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
       await apiServices.post("/address/create",formData,{
         headers : { Authorization : `Bearer ${token}`}
       });
-      toast.success("Alamat Berhasil Dibuat")
+      toast.success("Alamat Berhasil Dibuat");
+      setFormData({
+        full_name : "",
+        phone : "",
+        provinces : "",
+        postal_code : "",
+        street : ""
+      });
       onSucces();
       onClose();
     } catch (error) {
