@@ -49,7 +49,7 @@ function Profile() {
       <div className="flex-1 p-6">
         <h2 className="text-2xl font-semibold mb-10">Akun Saya</h2>
 
-        <div className="bg-[#f5f5f5] shadow-lg p-5 rounded-lg mb-4 border border-gray-200 backdrop-blur-md">
+        <div className="bg-[#f5f5f5] shadow-sm p-5 rounded-lg mb-4 border border-gray-200 hover:shadow-md transition-all">
           <div className="flex justify-between items-center">
             <p className="text-gray-700">Nama Lengkap</p>
             <p className="font-medium">{user?.username || "-"}</p>
@@ -61,12 +61,12 @@ function Profile() {
           </div>
         </div>
 
-        <div className="bg-[##f5f5f5] shadow-lg p-5 rounded-lg mb-4 border border-gray-200 backdrop-blur-md">
+        <div className="bg-[##f5f5f5] shadow-sm p-5 rounded-lg mb-4 border border-gray-200 hover:shadow-md transition-all">
             <p className="text-gray-700">Email</p>
             <p className="font-medium">{user?.email}</p>
         </div>
 
-        <div className="bg-[##f5f5f5] shadow-lg p-5 rounded-lg mb-4 border border-gray-200 backdrop-blur-md">
+        <div className="bg-[##f5f5f5] shadow-sm p-5 rounded-lg mb-4 border border-gray-200 hover:shadow-md transition-all">
           <div className="flex justify-between items-center">
             <p className="text-gray-700">Kata Sandi</p>
             <p className="font-medium">******</p>

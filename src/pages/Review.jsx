@@ -92,7 +92,7 @@ function Review() {
     }
   };
 
-  if(loading) return <div className="text-center py-10 text-gray-400">Loading Transaksi....</div>
+  if(loading) return <div className="text-center py-10 text-gray-400">Loading Ulasan....</div>
   return (
     <div className="min-h-screen flex bg-[#f5f5f5]">
       <SideBarProfile />
@@ -104,10 +104,11 @@ function Review() {
             <img
               src={notYetReview}
               alt="Belum Ada ulasan"
-              className="w-3xs h-auto object-contain opacity-70 mb-4"
+              className="w-3xs h-50 object-contain opacity-70 mb-4"
             />
             <div className="text-left">
               <p className="text-lg font-medium">Belum Membuat Ulasan</p>
+              <p className="text-sm text-gray-500 mb-4">Belanja Buku terlebih dahulu baru tambahkan ulasan pada buku tersebut ya^_^</p>
             </div>
           </div>
         ) : (

@@ -91,7 +91,11 @@ function CartItemCard({item, onUpdate, onDelete, onSelect, isSelected}) {
           <button 
           // disabled={loading}
           onClick={() => handleUpdateQuantity(item.quantity -1)}
-          className="px-4 py-1 text-gray-700 hover:text-black transition cursor-pointer">
+          className={`px-4 py-1 
+          ${item.quantity === 1 
+            ? "text-gray-200" : "text-gray-700 hover:text-black transition cursor-pointer"
+          }
+          `}>
             <FaMinus size={18}/>
           </button>
           <span className="px-4 text-gray-800">{item.quantity}</span>

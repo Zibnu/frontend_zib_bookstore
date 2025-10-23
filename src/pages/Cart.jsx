@@ -59,15 +59,25 @@ function Cart() {
         return;
       }
 
-      await apiServices.delete("/cart/clear", {
-        headers : { Authorization : `Bearer ${token}`}
-      })
+      if(selectedItems.length === 0) {
+        toast.error("Pilih Satu Item Untuk Dihapus");
+        return;
+      }
 
-      toast.success("Semua Buku Berhasil Dihapus Dari Keranjang")
-      setSelectedItems([])
-      fetchCart();
+      await Promise.all(
+        selectedItems.map( async(id_cart) => {
+          await apiServices.delete(`/cart/delete/${id_cart}`, {
+            headers : { Authorization : `Bearer ${token}`},
+          });
+        })
+      );
+
+      toast.success(`${selectedItems.length} Buku Berhasil Dihapus`)
+      setCartItems((prev) => prev.filter( (item) => !selectedItems.includes(item.id_cart)));
+      setSelectedItems([]);
+      // fetchCart();
     } catch (error) {
-      toast.error(error.response?.data?.message || "Gagal Menghapus Semua Item")
+      toast.error(error.response?.data?.message || "Gagal Menghapus Item Terpilih")
       console.error(error.response?.data?.message)
     }
   }
@@ -105,8 +115,13 @@ function Cart() {
               <span className="text-gray-700 font-medium">Pilih Semua</span>
               <button 
               onClick={handleClearCart}
-              className="ml-auto text-red-500 text-sm  flex gap-2 hover:bg-gray-300 rounded transition">
-                <RiDeleteBin6Fill size={18}/> Hapus Semua
+              disabled={selectedItems.length === 0}
+              className={`ml-auto flex gap-2 items-center text-sm px-3 py-1.5 rounded transition
+                ${selectedItems.length === 0 
+                  ? "text-gray-400 bg-gray-100 cursor-not-allowed" : "text-red-500 hover:bg-gray-300  cursor-pointer"
+                }
+              `}>
+                <RiDeleteBin6Fill size={18}/>Hapus
               </button>
             </div>
 
@@ -147,7 +162,11 @@ function Cart() {
         </div>
 
         <div className="w-[320px] self-start sticky top-20">
-          <CartSummaryCard total={total}/>
+          <CartSummaryCard
+          total={total}
+          selectedCount={selectedItems.length}
+          selectedItems={selectedItems}
+          />
         </div>
       </div>
     </div>
