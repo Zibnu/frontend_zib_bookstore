@@ -9,6 +9,7 @@ import Transaction from "../pages/Transaction";
 import Review from "../pages/Review";
 import Address from "../pages/Address";
 import Cart from "../pages/Cart";
+import Checkout from "../pages/Checkout";
 
 export default function AppRouter () {
   return (
@@ -21,6 +22,7 @@ export default function AppRouter () {
         <Route path="/profile/ulasan" element={<Review/>}></Route>
         <Route path="/profile/alamat" element={<Address/>}></Route>
         <Route path="/cart" element={<Cart/>}></Route>
+        <Route path="/checkout" element={<Checkout/>}></Route>
       </Route>
 
       <Route path="/login" element={<Login/>}/>
