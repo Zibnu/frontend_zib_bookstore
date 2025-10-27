@@ -6,18 +6,18 @@ function AddressCard({ address, onEdit, onDelete }) {
   return (
     <div className="bg-white shadow-sm rounded-xl p-4 border border-gray-200 hover:shadow-md transition-all">
       <div className="mb-2">
-        <p className="font-semibold text-gray-800">{full_name}</p>
-        <p className="font-semibold text-gray-500">{phone}</p>
+        <p className="font-semibold text-[#333333]">{full_name}</p>
+        <p className="font-semibold text-[#757575]">{phone}</p>
       </div>
 
-      <p className="text-gray-700 text-sm mb-4">
+      <p className="text-[#757575] text-sm mb-4">
         {street}, {provinces}, {postal_code}
       </p>
 
       <div className="flex gap-3">
         <button
           onClick={() => onEdit(address)}
-          className="text-blue-500 cursor-pointer hover:text-blue-700"
+          className="text-[#da8127] cursor-pointer hover:text-[#b9671f] transition-all"
         >
           <RiEdit2Line size={20} />
         </button>

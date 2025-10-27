@@ -30,14 +30,14 @@ function CartSummaryCard({total, selectedCount, selectedItems}) {
   
   return (
     <div className='bg-white shadow-md rounded-xl p-5 border border-gray-100'>
-      <h3 className="font-semibold text-lg mb-4">Ringkasan Keranjang</h3>
+      <h3 className="font-semibold text-[#333333] text-lg mb-4">Ringkasan Keranjang</h3>
 
-      <div className="flex justify-between mb-4 text-gray-700">
+      <div className="flex justify-between mb-4 text-[#757575]">
         <span>Total Harga</span>
         <span className='font-semibold'>{formatRupiah(total)}</span>
       </div>
 
-      <div className="flex justify-between font-semibold mt-4 text-lg">
+      <div className="flex justify-between text-[#da8127] font-semibold mt-4 text-lg">
         <span>Subtotal</span>
         <span>{formatRupiah(total)}</span>
       </div>
@@ -47,7 +47,7 @@ function CartSummaryCard({total, selectedCount, selectedItems}) {
       disabled={isDisabled}
       className={`mt-6 w-full  font-semibold text-center px-3 py-2 rounded-md transition
       ${isDisabled
-        ? "text-gray-300 bg-gray-100 cursor-not-allowed" : "text-black bg-[#B6CEB4] hover:hover:bg-[#a3c1a0] cursor-pointer"
+        ? "text-gray-300 bg-gray-100 cursor-not-allowed" : "text-white bg-[#da8127] hover:hover:bg-[#b9671f] cursor-pointer"
       }
       `}>
         Checkout

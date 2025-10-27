@@ -13,16 +13,16 @@ function CheckoutSummaryCard({ cartItems, step, onNext }) {
   };
   return (
     <div className="bg-white shadow-md rounded-xl p-4">
-      <h3 className="font-semibold text-lg mb-4">Ringkasan Keranjang</h3>
+      <h3 className="font-semibold text-[#333333] text-lg mb-4">Ringkasan Keranjang</h3>
 
-      <div className="flex justify-between text-sm mb-2">
+      <div className="flex justify-between text-[#757575] text-sm mb-2">
         <span>Total Harga ({cartItems.length} Barang)</span>
         <span>{formatRupiah(totalHarga)}</span>
       </div>
 
       <hr className="my-2" />
 
-      <div className="flex justify-between font-semibold text-lg">
+      <div className="flex justify-between text-[#da8127] font-semibold text-lg">
         <span>Total Belanja</span>
         <span>{formatRupiah(totalHarga)}</span>
       </div>
@@ -30,7 +30,7 @@ function CheckoutSummaryCard({ cartItems, step, onNext }) {
       {step === "shipping" && (
         <button
           onClick={onNext}
-          className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
+          className="mt-4 w-full bg-[#da8127] text-white py-2 rounded-lg hover:bg-[#b9671f] transition"
         >
           Lanjut Pembayaran
         </button>

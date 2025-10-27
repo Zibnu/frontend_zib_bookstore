@@ -6,14 +6,14 @@ function EditReviewModal({review, onSave, onClose}) {
   const [rating, setRating] = useState(review?.rating || 0);
   const [comment, setComment] = useState(review?.comment || "");
   return (
-    <div className='fixed inset-0 bg-black/40 flex items-center justify-center z-50'>
+    <div className='fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50'>
       <motion.div
       initial={{opacity : 0, scale : 0.8}}
       animate={{opacity : 1, scale : 1}}
       className='bg-white p-6 rounded-2xl w-full max-w-md shadow-lg'
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold text-gray-800">
+          <h2 className="text-lg font-semibold text-[#333333]">
             Edit Ulasan Buku
           </h2>
           <button
@@ -44,14 +44,14 @@ function EditReviewModal({review, onSave, onClose}) {
         value={comment}
         onChange={ (e) => setComment(e.target.value)}
         placeholder='Ceritakan Pengalaman mu Terkait Buku Ini'
-        className='w-full border border-gray-300 rounded-lg p-3 mb-4 resize-none focus:outline-none focus:ring-2 focus:ring-green-400'
+        className='w-full border border-gray-300 rounded-lg p-3 mb-4 placeholder-[#757575] resize-none focus:outline-none focus:ring-2 focus:ring-[#CCCCCC]'
         rows={3}
         ></textarea>
 
         <div className="flex justify-end">
           <button
           onClick={() => onSave({...review, rating, comment})}
-          className="px-4 py-2 rounded-lg cursor-pointer bg-green-600 text-white hover:bg-green-700">
+          className="px-4 py-2 rounded-lg cursor-pointer bg-[#da8127] text-white hover:bg-[#b9671f]">
             Simpan
           </button>
         </div>

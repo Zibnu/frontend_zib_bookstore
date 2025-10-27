@@ -47,30 +47,30 @@ function EditPasswordModal({onClose, onSuccess}) {
           <MdClose/>
           </button>
 
-          <h2 className="text-lg font-semibold mb-4">Ubah Kata Sandi</h2>
+          <h2 className="text-lg text-[#333333] font-semibold mb-4">Ubah Kata Sandi</h2>
 
-          <label className="text-sm text-gray-600">Kata Sandi Lama</label>
+          <label className="text-sm">Kata Sandi Lama</label>
           <input 
           type="password"
           value={oldPassword}
           onChange={(e) => setOldPassword(e.target.value)}
-          className="w-full border rounded-md px-3 py-2 mb-3 focus:outline-none focus:ring focus:ring-gray-300"
+          className="w-full border border-[#999999] rounded-md placeholder-[#757575]  px-3 py-2 mb-3 focus:outline-none focus:ring focus:ring-[#CCCCCC] transition"
           placeholder="Masukkan Kata Sandi Lama"
           />
 
-          <label className="text-sm text-shadow-gray-600">Kata Sandi Baru</label>
+          <label className="text-sm">Kata Sandi Baru</label>
           <input
           type="password"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
-          className="w-full border rounded-md px-3 py-2 mb-3 focus:outline-none focus:ring focus:ring-gray-300"
+          className="w-full border border-[#999999] rounded-md placeholder-[#757575] px-3 py-2 mb-3 focus:outline-none focus:ring focus:ring-[#CCCCCC] transition"
           placeholder="Masukkan Password Baru"
           />
 
           <button
           onClick={handlePassword}
           disabled={loading}
-          className="mt-4 w-full bg-[#96A78D] text-black py-2 rounded-md hover:bg-[#96A78D] transition disabled:opacity-50"
+          className="mt-4 w-full bg-[#da8127] text-[#FFFFFF] py-2 rounded-md hover:bg-[#b9671f] transition disabled:opacity-50"
           >
             {loading ? "Menyimpan..." : "Simpan Perubahan"}
           </button>

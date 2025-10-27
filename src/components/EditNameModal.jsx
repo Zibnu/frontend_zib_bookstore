@@ -50,20 +50,20 @@ function EditNameModal({ user, onClose, onSuccess}) {
           <MdClose/>
         </button>
 
-        <h2 className="text-lg font-semibold mb-4">Edit Nama Lengkap</h2>
+        <h2 className="text-lg text-[#333333] font-semibold mb-4">Ubah Username</h2>
 
         <input 
         type="text"
         value={name}
         onChange={ (e) => setName(e.target.value)}
-        className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-gray-300"
+        className="w-full border border-[#999999] rounded-md placeholder-[#757575] px-3 py-2 focus:outline-none focus:ring focus:ring-[#CCCCCC] transition-all"
         placeholder="Masukkan Name Baru"
         />
 
         <button
         onClick={handleUpdateName}
         disabled={loading}
-        className="mt-4 w-full bg-[#96A78D] text-black py-2 rounded-md cursor-pointer hover:bg-[#96A78Dre] transition disabled:opacity-50"
+        className="mt-4 w-full bg-[#da8127] text-[#FFFFFF] py-2 rounded-md cursor-pointer hover:bg-[#b9671f] transition disabled:opacity-50"
         >
           {loading ? "Menyimpan..." : "Simpan Perubahan"}
         </button>

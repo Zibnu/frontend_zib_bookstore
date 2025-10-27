@@ -48,7 +48,7 @@ function CheckoutItemList() {
   if(checkoutItems.length === 0) return <div className="text-gray-500 text-center">Tidak Ada Item Yang Terpilih</div>
   return (
     <div className='bg-white p-5 rounded-lg shadow-md border border-gray-200 space-y-4'>
-      <h2 className="text-lg font-semibold mb-3">Daftar Buku Checkout</h2>
+      <h2 className="text-lg text-[#333333] font-semibold mb-3">Daftar Buku Checkout</h2>
 
       {checkoutItems.map((item) => (
         <div 
@@ -61,12 +61,12 @@ function CheckoutItemList() {
             className="w-16 h-20 object-cover rounded"
             />
             <div>
-              <h4 className="font-semibold text-gray-800">{item.book.title}</h4>
-              <p className="text-gray-500 text-sm">Qty : {item.quantity}</p>
+              <h4 className="font-semibold text-[#333333]">{item.book.title}</h4>
+              <p className="text-[#757575] text-sm">Qty : {item.quantity}</p>
             </div>
           </div>
 
-          <p className="font-semibold text-gray-700">
+          <p className="font-semibold text-[#da8127]">
             {formatRupiah(item.book.price_cents * item.quantity)}
           </p>
         </div>

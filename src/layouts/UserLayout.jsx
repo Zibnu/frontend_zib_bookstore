@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom"
 
 export default function UserLayout () {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#FBF6EE]">
       <Navbar/>
       <main className="flex-grow">
         <Outlet/>

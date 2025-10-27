@@ -42,35 +42,38 @@ function Profile() {
   
   if(loading) return <div className="text-center py-10 text-gray-600">Memuat Profile....</div>
   return (
-    <div className='min-h-screen flex bg-[#f5f5f5]'>
+    <div className='min-h-screen flex bg-[#FBF6EE]'>
 
       <SideBarProfile/>
 
       <div className="flex-1 p-6">
         <h2 className="text-2xl font-semibold mb-10">Akun Saya</h2>
 
-        <div className="bg-[#f5f5f5] shadow-sm p-5 rounded-lg mb-4 border border-gray-200 hover:shadow-md transition-all">
+        <div className="bg-[#FFFFFF] shadow-sm p-5 rounded-lg mb-4 border border-[#E5E7EB] hover:shadow-md transition-all">
           <div className="flex justify-between items-center">
-            <p className="text-gray-700">Nama Lengkap</p>
+            <p className="text-gray-700">Username</p>
             <p className="font-medium">{user?.username || "-"}</p>
             <button
-            onClick={ () => setOpenEditName(true)} className='cursor-pointer'
+            onClick={ () => setOpenEditName(true)} className='cursor-pointer text-[#da8127] hover:text-[#b9671f]'
             >
               <RiEdit2Line size={15}/>
             </button>
           </div>
         </div>
 
-        <div className="bg-[##f5f5f5] shadow-sm p-5 rounded-lg mb-4 border border-gray-200 hover:shadow-md transition-all">
+        <div className="bg-[#FFFFFF] shadow-sm p-5 rounded-lg mb-4 border border-[#E5E7EB] hover:shadow-md transition-all">
+          <div className="flex justify-between items-center">
             <p className="text-gray-700">Email</p>
             <p className="font-medium">{user?.email}</p>
+            <p></p>
+          </div>
         </div>
 
-        <div className="bg-[##f5f5f5] shadow-sm p-5 rounded-lg mb-4 border border-gray-200 hover:shadow-md transition-all">
+        <div className="bg-[#FFFFFF] shadow-sm p-5 rounded-lg mb-4 border border-[#E5E7EB] hover:shadow-md transition-all">
           <div className="flex justify-between items-center">
             <p className="text-gray-700">Kata Sandi</p>
             <p className="font-medium">******</p>
-            <button onClick={ () => setOpenEditPassword(true)} className='cursor-pointer'>
+            <button onClick={ () => setOpenEditPassword(true)} className='cursor-pointer text-[#da8127] hover:text-[#b9671f]'>
               <RiEdit2Line size={15}/>
             </button>
           </div>

@@ -36,10 +36,10 @@ function SectionBook() {
 
       {/* Header */}
       <div className="flex justify-between items-center mb-4 px-4">
-        <h2 className="text-lg font-bold">Buku Terlaris</h2>
+        <h2 className="text-lg font-bold text-[#333333]">Buku Terlaris</h2>
         <Link to={"/category/terlaris"}>
         <p
-        className="text-sm text-[#96A78D] hover:underline cursor-pointer"
+        className="text-sm text-[#da8127] hover:underline cursor-pointer"
         >
           Lihat Semua
         </p>

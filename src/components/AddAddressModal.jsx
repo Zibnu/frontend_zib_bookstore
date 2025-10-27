@@ -64,7 +64,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-        className='fixed inset-0 bg-black/40 flex items-center justify-center z-50'
+        className='fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50'
         initial={{ opacity : 0}}
         animate={{ opacity : 1}}
         exit={{opacity : 0}}
@@ -74,7 +74,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
           animate={{scale : 1, opacity : 1}}
           exit={{scale : 0.8, opacity : 0}}
           className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">
-            <h2 className='text-lg font-semibold text-gray-800 mb-4'>
+            <h2 className='text-lg font-semibold text-[#333333] mb-4'>
               Tambah Alamat Baru
             </h2>
 
@@ -85,7 +85,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
               placeholder='Nama Lengkap'
               value={formData.full_name}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-400 outline-none'
+              className='border border-[#999999] rounded-lg px-3 py-2 placeholder-[#757575] text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -95,7 +95,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
               placeholder='No. Telepon'
               value={formData.phone}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-400 outline-none'
+              className='border border-[#999999] rounded-lg px-3 py-2 placeholder-[#757575] text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -105,7 +105,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
               placeholder='Provinsi'
               value={formData.provinces}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-400 outline-none'
+              className='border border-[#999999] rounded-lg px-3 py-2 placeholder-[#757575] text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -115,7 +115,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
               placeholder='Kode Pos'
               value={formData.postal_code}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-400 outline-none'
+              className='border border-[#999999] rounded-lg px-3 py-2 placeholder-[#757575] text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -124,7 +124,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
               placeholder='Nama Jalan'
               value={formData.street}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-400 outline-none'
+              className='border border-[#999999] rounded-lg px-3 py-2 placeholder-[#757575] text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -137,7 +137,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
                   Batal
                 </button>
                 <button 
-                className='px-4 py-2 text-sm rounded-lg bg-green-500 text-white hover:bg-green-600 transition'
+                className='px-4 py-2 text-sm rounded-lg bg-[#da8127] text-white hover:bg-[#b9671f] transition'
                 type="submit">
                   Simpan
                 </button>

@@ -36,15 +36,15 @@ function Regis() {
     }
   };
   return (
-    <div className=" min-h-screen w-screen flex  items-center justify-center bg-[#96A78D]">
-      <div className="bg-[#f0f0f0] rounded-2xl shadow-xl w-[850px] flex items-center p-12">
+    <div className=" min-h-screen w-screen flex  items-center justify-center bg-[#2C3E2F]">
+      <div className="bg-[#FBF6EE] rounded-2xl shadow-xl w-[850px] flex items-center p-12">
         <div className="flex-1 flex flex-col items-center">
           <h1 className="font-bold text-2xl">ZibBookstore</h1>
           <img src={authImage} alt="Hero Auth" className="w-64 mt-6" />
         </div>
 
         <div className="flex-1 px-10">
-          <h2 className="text-xl font-medium mb-6 text-center ">Register</h2>
+          <h2 className="text-xl font-medium mb-6 text-center text-[#333333]">Register</h2>
 
           {error && (
             <p className="text-red-500 text-sm text-center mb-3">{error}</p>
@@ -58,7 +58,7 @@ function Regis() {
               value={form.username}
               onChange={handleChange}
               required
-              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080]  focus:ring-2 focus:ring-[#55624C] outline-none transition"
+              className="bg-[#F0E9DD] rounded-lg px-4 py-2 border border-[#999999] placeholder-[#757575] focus:ring-2 focus:ring-[#CCCCCC] outline-none transition"
             />
             <input
               type="email"
@@ -67,7 +67,7 @@ function Regis() {
               value={form.email}
               onChange={handleChange}
               required
-              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080]  focus:ring-2 focus:ring-[#55624C] outline-none transition"
+              className="bg-[#F0E9DD] rounded-lg px-4 py-2 border border-[#999999] placeholder-[#757575] focus:ring-2 focus:ring-[#CCCCCC] outline-none transition"
             />
             <input
               type="password"
@@ -76,19 +76,19 @@ function Regis() {
               value={form.password}
               onChange={handleChange}
               required
-              className="bg-[#b6ceb4] rounded-lg px-4 py-2 placeholder-[#898080]  focus:ring-2 focus:ring-[#55624C] outline-none transition"
+              className="bg-[#F0E9DD] rounded-lg px-4 py-2 border border-[#999999] placeholder-[#757575] focus:ring-2 focus:ring-[#CCCCCC] outline-none transition"
             />
             <hr className="border-gray-400 mb-3 "/>
             <button
               type="submit"
-              className="bg-[#626a5d] text-white py-2   rounded-lg hover:bg-[#2f342d] transition"
+              className="bg-[#da8127] text-white py-2 rounded-lg hover:bg-[#b9671f] transition"
             >
               Daftar
             </button>
             <div className="mt-4 text-center ">
-          <p className="text-sm">
+          <p className="text-sm  text-[#333333]">
             Sudah Punya Akun?{" "}
-            <Link to="/login" className="text-black font-medium underline">
+            <Link to="/login" className="text-[#da8127] font-medium hover:underline hover:text-[#b9671f]">
               Masuk
             </Link>
           </p>

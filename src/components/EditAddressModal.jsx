@@ -56,7 +56,7 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
       {isOpen && (
         <motion.div
         key="edit-modal"
-        className='fixed inset-0 bg-black/40 flex items-center justify-center z-50'
+        className='fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50'
         initial={{opacity : 0}}
         animate={{opacity : 1}}
         exit={{opacity : 0}}
@@ -67,7 +67,7 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
           exit={{scale : 0.8, opacity : 0}}
           transition={{ duration : 0.2}}
           className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">
+            <h2 className="text-lg font-semibold text-[#333333] mb-4">
               Edit Alamat
             </h2>
 
@@ -81,7 +81,7 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
               placeholder='Nama Lengkap'
               value={formData.full_name}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#55624C] outline-none'
+              className='border border-[#999999] rounded-lg px-3 py-2 placeholder-[#757575] focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -91,7 +91,7 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
               placeholder='No. Telepon'
               value={formData.phone}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#55624C] outline-none'
+              className='border border-[#999999] rounded-lg px-3 py-2 placeholder-[#757575] focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -101,7 +101,7 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
               placeholder='Provinsi'
               value={formData.provinces}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#55624C] outline-none'
+              className='border border-[#999999] rounded-lg px-3 py-2 placeholder-[#757575] focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -111,7 +111,7 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
               placeholder='Kode Pos'
               value={formData.postal_code}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#55624C] outline-none'
+              className='border border-[#999999] rounded-lg px-3 placeholder-[#757575] py-2 focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -120,7 +120,7 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
               placeholder='Alamat Lengkap'
               value={formData.street}
               onChange={handleChange}
-              className='border rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#55624C] outline-none'
+              className='border border-[#999999] rounded-lg px-3 py-2 placeholder-[#757575] focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
 
@@ -128,12 +128,12 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
                 <button 
                 type='button'
                 onClick={onClose}
-                className='px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300'>
+                className='px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition'>
                   Batal
                 </button>
                 <button
                 type='submit'
-                className='px-4 py-2 text-sm rounded-lg bg-green-500 hover:bg-green-600 transition'
+                className='px-4 py-2 text-sm text-white rounded-lg bg-[#da8127] hover:bg-[#b9671f] transition'
                 >
                   Simpan Perubahan
                 </button>

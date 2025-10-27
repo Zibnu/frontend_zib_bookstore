@@ -7,13 +7,13 @@ function BookCard({ image, title, price}) {
   };
   return (
     <div 
-    className="min-w-[140px]  bg-[#f0f0f0] rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:translate-y-1 cursor-pointer flex flex-col h-full">
+    className="min-w-[140px]  bg-[#FFFFFF] rounded-xl shadow-xl hover:shadow-lg transition-all duration-300 hover:translate-y-1 cursor-pointer flex flex-col h-full">
       <div className="w-full aspect-[3/4] overflow-hidden rounded-t-xl">
       <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
       <div className="p-3 flex flex-col flex-grow">
-        <h3 className="text-sm font-medium line-clamp-2 mb-2">{title}</h3>
-        <p className="text-[#2E2E2E] font-semibold mt-auto">{formatRupiah(price)}</p>
+        <h3 className="text-sm text-[#333333] font-medium line-clamp-2 mb-2">{title}</h3>
+        <p className="text-[#da8127] font-semibold mt-auto">{formatRupiah(price)}</p>
       </div>
     </div>
   )

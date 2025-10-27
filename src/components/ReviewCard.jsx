@@ -44,7 +44,7 @@ function ReviewCard({ review, onEdit, onDelete}) {
       <div className="flex gap-3">
         <button 
         onClick={ () => onEdit(review)}
-        className="text-blue-500 cursor-pointer hover:text-blue-700">
+        className="text-[#da8127] cursor-pointer hover:text-[#b9671f]">
           <RiEdit2Line size={20}/>
         </button>
         <button 

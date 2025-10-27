@@ -62,7 +62,7 @@ function CartItemCard({item, onUpdate, onDelete, onSelect, isSelected}) {
         type="checkbox"
         checked={isSelected}
         onChange={() => onSelect(item.id_cart)}
-        className="w-4 h-4 accent-[#96A78D] cursor-pointer"
+        className="w-4 h-4 accent-[#da8127] cursor-pointer"
         />
         <img
         src={item.book.cover_path}
@@ -70,9 +70,9 @@ function CartItemCard({item, onUpdate, onDelete, onSelect, isSelected}) {
         className='w-20 h-28 object-cover rounded-md'
         />
         <div>
-          <h2 className="font-semibold text-lg">{item.book.title}</h2>
-          <p className="text-gray-500 text-sm">{item.book.author}</p>
-          <p className="text-gray-800 font-medium mt-2">
+          <h2 className="font-semibold text-lg text-[#333333]">{item.book.title}</h2>
+          <p className="text-[#757575] text-sm">{item.book.author}</p>
+          <p className="text-[#da8127] font-medium mt-2">
             {formatRupiah(item.book.price_cents)}
             </p>
         </div>

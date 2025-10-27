@@ -85,7 +85,7 @@ const renderStars = (rating) => {
 
   return (
     <>
-    <div className="max-w-4xl mx-auto  p-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div className="max-w-4xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-10">
       <div className="flex justify-center">
         <img 
         src={book.cover_path}
@@ -96,13 +96,13 @@ const renderStars = (rating) => {
 
       {/* Detail */}
       <div className="flex flex-col space-y-2">
-        <h1 className="text-2xl font-bold leading-snug">{book.title}</h1>
-        <p className="text-gray-600 text-sm">By {book.author}</p>
-        <p className="text-2xl font-bold">{formatRupiah(book.price_cents)}</p>
-        <p className="text-sm text-gray-500">
+        <h1 className="text-2xl text-[#333333] font-bold leading-snug">{book.title}</h1>
+        <p className="text-[#757575] text-sm">By {book.author}</p>
+        <p className="text-2xl text-[#da8127] font-bold">{formatRupiah(book.price_cents)}</p>
+        <p className="text-sm text-[#757575]">
           Diririlis Pada : {new Date(book.createdAt).toLocaleDateString("id-ID")}
         </p>
-        <p className="text-gray-700 mt-4 leading-relaxed">
+        <p className="text-[#757575] mt-4 leading-relaxed">
           {book.description}
         </p>
 
@@ -120,9 +120,9 @@ const renderStars = (rating) => {
             </div>
 
             {book.reviews && book.reviews.length > 0 ? (
-              <div className="mt-4 space-y-4">
+              <div className="mt-4 space-y-4 bg-[#FFFFFF]">
                 { book.reviews.map((review) => (
-                  <div key={review.id_review} className="p-4 border border-gray-300 rounded-md shadow-sm">
+                  <div key={review.id_review} className="p-4 border border-[#CCCCCC]rounded-md shadow-sm">
                     <p className="font-medium">{review.user.username}</p>
                     <p className="text-sm text-yellow-600">{renderStars(review.rating)}</p>
                     <p className="text-gray-700 mt-1">{review.comment}</p>
@@ -133,7 +133,7 @@ const renderStars = (rating) => {
                 ))}
               </div>
             ) : (
-              <div className="mt-6 flex items-center gap-3 border p-4 rounded-md bg-gray-50">
+              <div className="mt-6 flex items-center gap-3 border border-[#CCCCCC] p-4 rounded-md bg-[#FFFFFF]">
                 <img 
                 src={noReview}
                 alt="No Review"
@@ -153,15 +153,15 @@ const renderStars = (rating) => {
         <div className="flex items-center gap-3">
           <img src={book.cover_path} className="w-12 h-16 object-cover rounded" />
           <div className="flex flex-col">
-            <span className="font-semibold text-sm truncate">{book.title}</span>
-            <span className="text-xs text-gray-500">{book.author}</span>
-            <span className="text-sm font-bold">{formatRupiah(book.price_cents)}</span>
+            <span className="font-semibold text-[#333333] text-sm truncate">{book.title}</span>
+            <span className="text-xs text-[#757575]">{book.author}</span>
+            <span className="text-sm text-[#da8127] font-bold">{formatRupiah(book.price_cents)}</span>
           </div>
         </div>
 
         <button
           onClick={handleAddToCart}
-          className="px-4 py-2 bg-[#7FB77E] text-white rounded-md hover:bg-[#6ca06a] transition"
+          className="px-4 py-2 cursor-pointer bg-[#da8127] text-white rounded-md hover:bg-[#b9671f] transition"
         >
           + Keranjang
         </button>

@@ -70,7 +70,7 @@ function Transaction() {
     );
 
   return (
-    <div className="min-h-screen flex bg-[#f5f5f5]">
+    <div className="min-h-screen flex bg-[#FBF6EE]">
       <SideBarProfile />
       <div className="flex-1 p-6">
         <h2 className="text-2xl font-semibold mb-6">Transaksi</h2>
@@ -89,7 +89,7 @@ function Transaction() {
               </p>
               <a
                 href="/"
-                className="px-4 py-2 bg-[#96A78D] text-white rounded-md hover:bg-[#7f9573]"
+                className="px-4 py-2 bg-[#da8127] text-white rounded-md hover:bg-[#b9671f]"
               >
                 Mulai Belanja
               </a>
@@ -114,7 +114,7 @@ function Transaction() {
               {order.orderItems.map((item) => (
                 <div
                   key={item.id_order_items}
-                  className="flex gap-4 mb-3 border-b pb-3"
+                  className="flex gap-4 mb-3 border-b border-gray-300 pb-3"
                 >
                   <img
                     src={item.book.cover_path}

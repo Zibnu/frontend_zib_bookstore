@@ -97,7 +97,7 @@ function Cart() {
   if(loading) return <div className="text-gray-500 text-center text-sm">Loading Cart ..... </div>
 
   return (
-    <div className='min-h-screen  bg-gray-50 p-8'>
+    <div className='min-h-screen  bg-[#FBF6EE] p-8'>
       <h1 className="text-2xl font-bold mb-6">Keranjang</h1>
 
       <div className="flex gap-6 items-center">
@@ -105,20 +105,20 @@ function Cart() {
         <div className="flex-1 space-y-4">
           { cartItems.length > 0 ? (
             <>
-            <div className="flex items-center gap-2 mb-4 bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+            <div className="flex items-center gap-2 mb-4 bg-[#FFFFFF] p-3 rounded-lg shadow-sm border border-gray-200">
               <input 
               type="checkbox" 
               checked={selectedItems.length === cartItems.length && cartItems.length > 0}
               onChange={handleSelectAll}
-              className='w-4 h-4 accent-[#96A78D] cursor-pointer'
+              className='w-4 h-4 accent-[#da8127] cursor-pointer'
               />
-              <span className="text-gray-700 font-medium">Pilih Semua</span>
+              <span className="text-[#333333] font-medium">Pilih Semua</span>
               <button 
               onClick={handleClearCart}
               disabled={selectedItems.length === 0}
               className={`ml-auto flex gap-2 items-center text-sm px-3 py-1.5 rounded transition
                 ${selectedItems.length === 0 
-                  ? "text-gray-400 bg-gray-100 cursor-not-allowed" : "text-red-500 hover:bg-gray-300  cursor-pointer"
+                  ? "text-gray-400 bg-gray-100 cursor-not-allowed" : "text-red-500 hover:text-red-600  cursor-pointer"
                 }
               `}>
                 <RiDeleteBin6Fill size={18}/>Hapus

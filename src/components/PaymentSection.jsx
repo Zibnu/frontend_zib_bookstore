@@ -88,7 +88,7 @@ function PaymentSection({selectedItems, addressId}) {
           key={method.id}
           className={`flex items-center justify-between border rounded-lg p-3 cursor-pointer
             ${selectedMethod === method.id 
-              ? "border-blue-500 bg-blue-50" : "border-gray-300"
+              ? "border-[#b9671f] bg-yellow-100" : "border-gray-300"
             }
             `}
           >
@@ -99,7 +99,7 @@ function PaymentSection({selectedItems, addressId}) {
               value={method.id}
               checked={ selectedMethod === method.name}
               onChange={() => setSelectedMethod(method.name)}
-              className='accent-blue-600 w-4 h-4'
+              className='accent-[#b9671f] w-4 h-4'
               />
               <img 
               src={method.icon}
@@ -112,14 +112,14 @@ function PaymentSection({selectedItems, addressId}) {
         ))}
       </div>
 
-      <div className="mt-5 border-t pt-4 text-sm text-gray-700 space-y-2">
+      <div className="mt-5 border-t pt-4 text-sm text-[#333333] space-y-2">
         <p>Total Belanja : {formatRupiah(totalBelanja)}</p>
         <p>Biaya Pengiriman : {formatRupiah(totalPengiriman)}</p>
       </div>
 
       <hr className="my-3" />
 
-      <div className="flex justify-between font-semibold text-gray-900 mb-5">
+      <div className="flex justify-between font-semibold text-[#da8127] mb-5">
         <span>Total Pembayaran</span>
         <span>{formatRupiah(totalPembayaran)}</span>
       </div>
@@ -127,7 +127,7 @@ function PaymentSection({selectedItems, addressId}) {
       <button 
       onClick={handlePay}
       disabled={isPaying}
-      className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition">
+      className="w-full bg-[#da8127] text-white py-3 rounded-lg hover:bg-[#b9671f] transition">
         {isPaying ? "Memproses..." : "Bayar"} 
       </button>
     </div>

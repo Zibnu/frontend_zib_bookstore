@@ -34,20 +34,20 @@ function AddressSection({activeAddress, setActiveAddress}) {
   return (
     <div className='bg-white rounded-xl shadow-sm p-5'>
       <div className="flex justify-between items-center mb-3">
-        <h2 className="text-lg font-semibold text-gray-800">Alamat Pengiriman</h2>
+        <h2 className="text-lg font-semibold text-[#333333]">Alamat Pengiriman</h2>
         <button
         onClick={() => setIsModalOpen(true)}
-        className="text-gray-600 hover:text-gray-700 text-sm font-medium underline transition">
+        className="text-[#da8127] hover:text-[#b9671f] text-sm font-medium underline transition">
           Alamat Lainnya
         </button>
       </div>
 
       {activeAddress ? (
         <div className="border rounded-lg p-4 bg-green-50">
-          <h3 className="font-semibold text-gray-800">
+          <h3 className="font-semibold text-[#333333]">
             {activeAddress.full_name} &bull; {activeAddress.phone}
           </h3>
-          <p className="text-sm text-gray-600 mt-1">
+          <p className="text-sm text-[#757575] mt-1">
             {activeAddress.street}, {activeAddress.provinces}, {" "}
             {activeAddress.postal_code}
           </p>

@@ -57,7 +57,7 @@ function Address() {
   if(loading) return <div className="text-center text-gray-500 text-sm">Memuat Alamat...</div>
 
   return (
-    <div className='w-full min-h-screen bg-[#f5f5f5] flex'>
+    <div className='w-full min-h-screen bg-[#FBF6EE] flex'>
       <SideBarProfile/>
       <div className="flex-1 p-6 md:p-10">
 
@@ -65,7 +65,7 @@ function Address() {
           <h2 className="text-2xl font-semibold text-gray-800">Daftar Alamat</h2>
           <button 
           onClick={() => setIsAddOpen(true)}
-          className="px-4 py-2 bg-[#96A78D] curpoin text-black flex text-sm rounded-lg hover:bg-[#7f9276] transition cursor-pointer">
+          className="px-4 py-2 bg-[#da8127] text-white flex text-sm rounded-lg hover:bg-[#b9671f] transition cursor-pointer">
             <FaPlus />
           </button>
         </div>
@@ -83,7 +83,7 @@ function Address() {
             <p className="text-sm text-gray-500 mb-4">Buat alamat untuk kami bisa mengirim buku anda</p>
             <button 
             onClick={() => setIsAddOpen(true)}
-            className='px-4 py-2 bg-[#96A78D] text-white rounded-md hover:bg-[#7f9573]'>
+            className='px-4 py-2 bg-[#da8127] text-white rounded-md hover:bg-[#b9671f]'>
               Buat Alamat
             </button>
           </div>

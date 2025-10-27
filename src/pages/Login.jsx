@@ -57,8 +57,8 @@ function Login () {
   };
 
   return (
-  <div className="min-h-screen flex items-center justify-center bg-[#96A78D]">
-    <div className="bg-[#f0f0f0] rounded-lg shadow-lg w-[850px] flex items-center p-10">
+  <div className="min-h-screen flex items-center justify-center bg-[#2C3E2F]">
+    <div className="bg-[#FBF6EE] rounded-lg shadow-lg w-[850px] flex items-center p-10">
       <div className="flex-1 flex flex-col items-center">
         <h1 className="font-bold text-2xl mb-5">ZibBookstore</h1>
         <img 
@@ -69,7 +69,7 @@ function Login () {
       </div>
 
       <div className="flex-1">
-        <h2 className="text-center text-lg font-medium mb-6 ">Login</h2>
+        <h2 className="text-center text-lg font-medium mb-6 text-[#333333]">Login</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input 
           type="email"
@@ -77,7 +77,7 @@ function Login () {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          className="bg-[#b6ceb4] rounded-lg  px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition  "
+          className="bg-[#F0E9DD] rounded-lg border border-[#999999] px-4 py-2 placeholder-[#757575] focus:ring-2 focus:ring-[#CCCCCC] outline-none transition"
           required
           />
           <input 
@@ -86,7 +86,7 @@ function Login () {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          className="bg-[#b6ceb4] rounded-lg  px-4 py-2 placeholder-[#898080] focus:ring-2 focus:ring-[#55624C] outline-none transition"
+          className="bg-[#F0E9DD] rounded-lg border border-[#999999] px-4 py-2 placeholder-[#757575] focus:ring-2 focus:ring-[#CCCCCC] outline-none transition"
           required
           />
 
@@ -99,15 +99,15 @@ function Login () {
           <button 
           type="submit"
           disabled={loading}
-          className={`w-full py-3 rounded-md  text-white font-medium transition ${
-            loading ? "bg-gray-500" : "bg-[#626a5d] hover:bg-[#2f342d]"
+          className={`w-full py-3 rounded-md  text-white font-medium cursor-pointer transition ${
+            loading ? "bg-[#da8127]" : "bg-[#da8127] hover:bg-[#b9671f]"
           }`}
           > {loading ? "Memproses..." : "Login"}
           </button>
           <div className="mt-4 text-center">
-          <p className="text-sm ">
+          <p className="text-sm text-[#333333]">
             Belum Punya Akun? {" "}
-            <Link to="/register" className="text-black font-medium underline">
+            <Link to="/register" className="text-[#da8127] font-medium hover:text-[#b9671f] hover:underline">
             Daftar
             </Link>
           </p>
