@@ -44,19 +44,7 @@ function AddressModal({isOpen, onClose, onSelectAddress}) {
               Pilih Alamat Pengiriman
             </h3>
 
-            {addresses.length === 0 ? (
-      <div className="bg-white p-5 rounded-lg shadow-md border border-gray-200">
-        <h2 className="text-lg font-semibold mb-3">Alamat</h2>
-        <p className="text-gray-500 text-sm mb-4">
-          Belum Ada Alamat Yang Terdaftar
-        </p>
-        <button
-        className="bg-white text-gray-300 px-4 py-2 border border-gray-200 rounded-md hover:border transition"
-        >
-          Buat Alamat
-        </button>
-      </div>
-            ) : (
+            {addresses.length > 0 && (
               <div className="flex flex-col gap-3 max-h-60 overflow-y-auto">
                 {addresses.map((address) => (
                   <div 
