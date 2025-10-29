@@ -10,6 +10,7 @@ import Review from "../pages/Review";
 import Address from "../pages/Address";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
+import SuccessCheckout from "../pages/SuccessCheckout";
 
 export default function AppRouter () {
   return (
@@ -24,6 +25,8 @@ export default function AppRouter () {
         <Route path="/cart" element={<Cart/>}></Route>
         <Route path="/checkout" element={<Checkout/>}></Route>
       </Route>
+
+      <Route path="/success-checkout" element={<SuccessCheckout/>} />
 
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Regis/>}/>

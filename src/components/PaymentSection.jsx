@@ -57,7 +57,7 @@ function PaymentSection({selectedItems, address}) {
       });
 
       if(paymentRes.data.success) {
-        navigate("/profile/transaksi", {
+        navigate("/success-checkout", {
           state : { order : orderData, payment : paymentRes.data.data},
         });
       };
