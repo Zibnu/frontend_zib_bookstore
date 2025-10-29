@@ -60,7 +60,10 @@ function Checkout() {
     <div className='max-w-6xl ms-auto px-4 py-10'>
       <CheckoutStepBar currentStep={currentStep}/>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className={`grid gap-6 ${
+        currentStep === "shipping"
+        ? "grid-cols-1 lg:grid-cols-3" : "grid-cols-1 lg:grid-cols-2"
+      }`}>
         {/* Bagian Kiri */}
         <div className="lg:col-span-2 space-y-5">
           {currentStep === "shipping" && (
@@ -76,33 +79,19 @@ function Checkout() {
           {currentStep === "payment" && (
             <PaymentSection
             selectedItems={selectedItems}
-            addressId={activeAddress?.id_address}
+            address={activeAddress}
             />
           )}
         </div>
 
         {/* Bagian kanan */}
-        <div>
+        <div className='self-start sticky top-25'>
           {currentStep === "shipping" &&(
             <CheckoutSummaryCard
             cartItems={selectedItems}
             step={currentStep}
             onNext={handleNextStep}
             />
-          )}
-          {currentStep === "payment" && (
-            <div className="bg-white p-5 rounded-xl shadow-md border">
-              <h3 className="text-lg font-semibold mb-3">Ringkasan Pesanan</h3>
-              <p className="text-sm text-gray-600 mb-2">
-                Total Barang : {selectedItems.length}
-              </p>
-              <p className="text-sm text-gray-600">
-                Alamat:{" "}
-                <span className="font-medium">
-                  {activeAddress?.street}, {activeAddress?.provinces}
-                </span>
-              </p>
-            </div>
           )}
         </div>
       </div>

@@ -3,11 +3,12 @@ import Dana from "../assets/images/Logo Dana - Copy.png";
 import Ovo from "../assets/images/1024px-Logo_ovo_purple.svg - Copy.png";
 import Gopay from "../assets/images/Logo GoPay Vector CDR dan PNG - Copy.png";
 import apiServices from "../utils/api";
+import PaymentSummaryCard from './PaymentSummaryCard';
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast"
 import { useState } from 'react';
 
-function PaymentSection({selectedItems, addressId}) {
+function PaymentSection({selectedItems, address}) {
   const navigate = useNavigate();
   const [ selectedMethod, setSelectedMethod] = useState(null);
   const [ isPaying, setIsPaying] = useState(false);
@@ -19,12 +20,6 @@ function PaymentSection({selectedItems, addressId}) {
 
   const totalPengiriman = 10000;
   const totalPembayaran = totalBelanja + totalPengiriman;
-
-    const formatRupiah = (value) => {
-    if (!value && value !== 0) return "0";
-    const cleaned = value.toString().replace(/[^\d]/g, "");
-    return "Rp" + cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  };
 
   const handlePay = async () => {
     if(!selectedMethod) {
@@ -42,7 +37,7 @@ function PaymentSection({selectedItems, addressId}) {
       }
 
       const orderRes = await apiServices.post("/order/create", {
-        address_id : addressId,
+        address_id : address.id_address,
         items : selectedItems.map((item) => ({
           book_id : item.book.id_book,
           quantity : item.quantity,
@@ -80,15 +75,16 @@ function PaymentSection({selectedItems, addressId}) {
     { id : "ovo", name : "Ovo", icon : Ovo}
   ]
   return (
-    <div className='bg-white rounded-xl shadow p-5 mt-6'>
+    <div className='flex flex-col lg:flex-row gap-6'>
+      <div className="bg-white rounded-xl shadow p-5 w-full lg:w-[65%]">
       <h2 className="text-lg font-semibold mb-5">Metode Pembayaran</h2>
       <div className="space-y-3">
         { paymentMethods.map((method) => (
           <label 
           key={method.id}
           className={`flex items-center justify-between border rounded-lg p-3 cursor-pointer
-            ${selectedMethod === method.id 
-              ? "border-[#b9671f] bg-yellow-100" : "border-gray-300"
+            ${selectedMethod === method.id
+              ? "border-[#da8127] bg-yellow-50" : "border-gray-300"
             }
             `}
           >
@@ -111,25 +107,19 @@ function PaymentSection({selectedItems, addressId}) {
           </label>
         ))}
       </div>
-
-      <div className="mt-5 border-t pt-4 text-sm text-[#333333] space-y-2">
-        <p>Total Belanja : {formatRupiah(totalBelanja)}</p>
-        <p>Biaya Pengiriman : {formatRupiah(totalPengiriman)}</p>
       </div>
 
-      <hr className="my-3" />
-
-      <div className="flex justify-between font-semibold text-[#da8127] mb-5">
-        <span>Total Pembayaran</span>
-        <span>{formatRupiah(totalPembayaran)}</span>
+      <div className="w-full lg:w-[35%]">
+        <PaymentSummaryCard
+        totalBelanja={totalBelanja}
+        totalPengiriman={totalPengiriman}
+        totalPembayaran={totalPembayaran}
+        totalBarang={selectedItems.length}
+        address={address}
+        onPay={handlePay}
+        isPaying={isPaying}
+        />
       </div>
-
-      <button 
-      onClick={handlePay}
-      disabled={isPaying}
-      className="w-full bg-[#da8127] text-white py-3 rounded-lg hover:bg-[#b9671f] transition">
-        {isPaying ? "Memproses..." : "Bayar"} 
-      </button>
     </div>
   )
 }
