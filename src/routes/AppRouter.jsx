@@ -14,26 +14,62 @@ import SuccessCheckout from "../pages/SuccessCheckout";
 import Search from "../pages/Search";
 import CategoryDetail from "../pages/CategoryDetail";
 
+import GuestRoute from "./GuestRoute";
+import ProtectedRoute from "./ProtectedRoute";
+
 export default function AppRouter () {
   return (
     <Routes>
       <Route element={<UserLayout/>}>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/book/:id" element={<DetailBook/>}></Route>
-        <Route path="/profile/akun" element={<Profile/>}></Route>
-        <Route path="/profile/transaksi" element={<Transaction/>}></Route>
-        <Route path="/profile/ulasan" element={<Review/>}></Route>
-        <Route path="/profile/alamat" element={<Address/>}></Route>
-        <Route path="/cart" element={<Cart/>}></Route>
-        <Route path="/checkout" element={<Checkout/>}></Route>
         <Route path="/search" element={<Search/>}></Route>
         <Route path="/category/:id" element={<CategoryDetail/>}></Route>
+
+        <Route path="/profile/akun" element={
+          <ProtectedRoute>
+            <Profile/>
+          </ProtectedRoute>
+          }></Route>
+        <Route path="/profile/transaksi" element={
+          <ProtectedRoute>
+            <Transaction/>
+          </ProtectedRoute>
+          }></Route>
+        <Route path="/profile/ulasan" element={
+          <ProtectedRoute>
+            <Review/>
+          </ProtectedRoute>
+          }></Route>
+        <Route path="/profile/alamat" element={
+          <ProtectedRoute>
+            <Address/>
+          </ProtectedRoute>
+          }></Route>
+        <Route path="/cart" element={
+          <ProtectedRoute>
+            <Cart/>
+          </ProtectedRoute>
+          }></Route>
+        <Route path="/checkout" element={
+          <ProtectedRoute>
+            <Checkout/>
+          </ProtectedRoute>
+          }></Route>
       </Route>
 
       <Route path="/success-checkout" element={<SuccessCheckout/>} />
 
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/register" element={<Regis/>}/>
+      <Route path="/login" element={
+        <GuestRoute>
+          <Login/>
+        </GuestRoute>
+        }/>
+      <Route path="/register" element={
+        <GuestRoute>
+          <Regis/>
+        </GuestRoute>
+        }/>
 
       
     </Routes>
