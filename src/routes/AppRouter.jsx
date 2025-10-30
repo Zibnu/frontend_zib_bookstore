@@ -11,6 +11,8 @@ import Address from "../pages/Address";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import SuccessCheckout from "../pages/SuccessCheckout";
+import Search from "../pages/Search";
+import CategoryDetail from "../pages/CategoryDetail";
 
 export default function AppRouter () {
   return (
@@ -24,6 +26,8 @@ export default function AppRouter () {
         <Route path="/profile/alamat" element={<Address/>}></Route>
         <Route path="/cart" element={<Cart/>}></Route>
         <Route path="/checkout" element={<Checkout/>}></Route>
+        <Route path="/search" element={<Search/>}></Route>
+        <Route path="/category/:id" element={<CategoryDetail/>}></Route>
       </Route>
 
       <Route path="/success-checkout" element={<SuccessCheckout/>} />

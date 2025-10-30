@@ -1,7 +1,7 @@
 import React from 'react'
 import Lotie from "lottie-react"
 import { motion } from 'framer-motion'
-import successAnimation from "../assets/images/Add To Cart Success.json"
+import successAnimation from "../assets/animation/Add To Cart Success.json"
 import { useNavigate } from 'react-router-dom'
 
 

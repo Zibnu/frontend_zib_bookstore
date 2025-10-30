@@ -11,7 +11,7 @@ function Navbar () {
   const handleSearch = (e) => {
     e.preventDefault();
     if(searchQuery.trim()) {
-      navigate(`/search?query=${encodeURI(searchQuery)}`);
+      navigate(`/search?q=${encodeURI(searchQuery)}`);
       setSearchQuery("")
     }
   };
