@@ -3,8 +3,18 @@ import { useNavigate, useParams } from 'react-router-dom';
 import apiServices from '../utils/api';
 import noReview from "../assets/images/tidak ada ulasan.png"
 import toast from 'react-hot-toast';
+import AddReviewModal from '../components/AddReviewModal';
 
 function DetailBook() {
+  const { id } = useParams();
+  const [ book, setBook ] = useState(null);
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const [ showMiniCart, setShowMiniCart ] = useState(false);
+  // const [ error, setError ] = useState(null);
+  const [ openAddReviewModal, setOpenAddReviewModal] = useState(false);
+  const [userHasReview, setUserHasReview] = useState(false);
+
   const formatRupiah = (value) => {
     if(!value && value !== 0) return "0";
     const cleaned = value.toString().replace(/[^\d]/g, "");
@@ -26,15 +36,9 @@ const renderStars = (rating) => {
   return stars;
 };
 
-  const { id } = useParams();
-  const [ book, setBook ] = useState(null);
-  const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  const [ showMiniCart, setShowMiniCart ] = useState(false)
-  // const [ error, setError ] = useState(null);
 
   useEffect(() => {
-    const fetchBook = async ( ) => {
+    const fetchBook = async () => {
       try {
         const res = await apiServices(`/books/${id}`);
         setBook(res.data.data || [])
@@ -46,6 +50,37 @@ const renderStars = (rating) => {
     fetchBook();
   }, [id]);
   // console.log(book);
+
+  const updateData = async () => {
+    try {
+    const res = await apiServices(`/books/${id}`);
+    const updateBook = res.data.data || [];
+    setBook(updateBook);
+
+    if( token && updateBook?.reviews){
+      const userId = JSON.parse(localStorage.getItem("userId"));
+      const alReadyReview = updateBook.reviews.some(
+        (review) => review.user.id_user === userId
+      );
+      setUserHasReview(alReadyReview);
+    }
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Gagal Memuat Buku From Detail Buku");
+      console.error(error)
+    }
+  }
+
+  // useEffect(() => {
+  //   if(book && token) {
+  //     const userId = JSON.parse(localStorage.getItem("userId"));
+  //     const alReadyReview = book.reviews.some(
+  //       (review) => review.user.id === userId
+  //     );
+  //     setUserHasReview(alReadyReview);
+  //   }
+  // }, [book, token]);
+
+  // console.log(userHasReview)
 
   useEffect( () => {
     const handleScroll = () => {
@@ -106,23 +141,50 @@ const renderStars = (rating) => {
           {book.description}
         </p>
 
-        <div className="mt-6">
-          <h2 className="text-lg font-semibold flex items-center gap-2">
-            Ulasan Buku
-            </h2>
-            <div className="flex items-center gap-2">
-            <span className="text-yellow-600">
-              {renderStars(book.averageRating || 0)}
-            </span>
-            <span className="text-sm text-gray-500">
-              ({book.totalReviews || 0} Review)
-            </span>
+        <div className="mt-6 bg-[#FFFFFF] p-6 rounded-md shadow-sm">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h2 className="text-lg font-semibold flex items-center gap-2">
+                Ulasan Buku
+              </h2>
+              <span className="flex items-center gap-2 text-yellow-600">
+                {renderStars(book.averageRating || 0)}
+              </span>
+              <span className="text-sm text-gray-500">
+                ({book.totalReviews || 0} Review)
+              </span>
             </div>
 
+            <button
+              onClick={() => {
+                if(!token) {
+                  toast.error("Silahkan Login Terlebih Dahulu");
+                  navigate("/login");
+                  return;
+                }
+                if(userHasReview) {
+                  toast.error("Anda Telah Memberikan Ulasan Pada Buku Ini");
+                  return;
+                }
+                setOpenAddReviewModal(true)
+              }}
+              disabled={userHasReview}
+              className={`px-3 py-2 border rounded-lg text-sm transition
+                ${userHasReview ? 
+                  "bg-gray-200 text-gray-600 cursor-not-allowed" : 
+                  "bg-[#da8127] text-white cursor-pointer hover:bg-[#b9671f]"}
+                `}
+              >
+                Tambah Ulasan
+            </button>
+          </div>
+
             {book.reviews && book.reviews.length > 0 ? (
-              <div className="mt-4 space-y-4 bg-[#FFFFFF]">
+              <div className="space-y-4 bg-[#FFFFFF]">
                 { book.reviews.map((review) => (
-                  <div key={review.id_review} className="p-4 border border-[#CCCCCC]rounded-md shadow-sm">
+                  <div key={review.id_review}
+                  className="p-4 border border-[#CCCCCC]rounded-md shadow-sm"
+                  >
                     <p className="font-medium">{review.user.username}</p>
                     <p className="text-sm text-yellow-600">{renderStars(review.rating)}</p>
                     <p className="text-gray-700 mt-1">{review.comment}</p>
@@ -133,13 +195,28 @@ const renderStars = (rating) => {
                 ))}
               </div>
             ) : (
-              <div className="mt-6 flex items-center gap-3 border border-[#CCCCCC] p-4 rounded-md bg-[#FFFFFF]">
+              <div className="mt-6 flex flex-col md:flex-row items-center md:items-start justify-center gap-6 border border-[#CCCCCC] p-6 rounded-md bg-[#FFFFFF] ">
                 <img 
                 src={noReview}
                 alt="No Review"
-                className='w-12 h-12 object-contain opacity-70'
+                className='w-40 h-40 object-contain opacity-70'
                 />
-                <p className="text-gray-500">Buku Ini Belum Memiliki Ulasan</p>
+                <div className="text-center md:text-left">
+                <h3 className="text-lg font-semibold text-[#333333]">Buku Ini Belum Memiliki Ulasan</h3>
+                <p className="text-gray-500 mb-4 leading-relaxed">Jadilah Yang Pertama Dalam Memberikan Ulasan</p>
+                <button 
+                onClick={() => {
+                  if(!token) {
+                    toast.error("Silahkan Login Terlebih Dahulu");
+                    navigate("/login");
+                    return;
+                  }
+                  setOpenAddReviewModal(true)
+                }}
+                className="px-4 py-2 border border-gray-300 rounded-lg text-[#333] hover:border-gray-500 transition">
+                  Tulis Ulasan
+                </button>
+                </div>
               </div>
             )}
         </div>
@@ -166,6 +243,14 @@ const renderStars = (rating) => {
           + Keranjang
         </button>
       </div>
+
+      {openAddReviewModal && (
+      <AddReviewModal
+      onClose={() => setOpenAddReviewModal(false)}
+      bookId={book.id_book}
+      onSave={updateData}
+      />
+      )}
       </>
   )
 }

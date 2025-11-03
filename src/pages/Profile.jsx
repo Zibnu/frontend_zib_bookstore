@@ -50,31 +50,36 @@ function Profile() {
         <h2 className="text-2xl font-semibold mb-10">Akun Saya</h2>
 
         <div className="bg-[#FFFFFF] shadow-sm p-5 rounded-lg mb-4 border border-[#E5E7EB] hover:shadow-md transition-all">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-start">
+            <div>
             <p className="text-gray-700">Username</p>
-            <p className="font-medium">{user?.username || "-"}</p>
+            <p className="font-medium mt-3">{user?.username || "-"}</p>
+            </div>
             <button
-            onClick={ () => setOpenEditName(true)} className='cursor-pointer text-[#da8127] hover:text-[#b9671f]'
+            onClick={ () => setOpenEditName(true)} className='cursor-pointer mt-5 text-[#da8127] hover:text-[#b9671f]'
             >
-              <RiEdit2Line size={15}/>
+              <RiEdit2Line size={18}/>
             </button>
           </div>
         </div>
 
         <div className="bg-[#FFFFFF] shadow-sm p-5 rounded-lg mb-4 border border-[#E5E7EB] hover:shadow-md transition-all">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-start">
+            <div>
             <p className="text-gray-700">Email</p>
-            <p className="font-medium">{user?.email}</p>
-            <p></p>
+            <p className="font-medium mt-3">{user?.email}</p>
+            </div>
           </div>
         </div>
 
         <div className="bg-[#FFFFFF] shadow-sm p-5 rounded-lg mb-4 border border-[#E5E7EB] hover:shadow-md transition-all">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-start">
+            <div>
             <p className="text-gray-700">Kata Sandi</p>
-            <p className="font-medium">******</p>
-            <button onClick={ () => setOpenEditPassword(true)} className='cursor-pointer text-[#da8127] hover:text-[#b9671f]'>
-              <RiEdit2Line size={15}/>
+            <p className="font-medium mt-3">******</p>
+            </div>
+            <button onClick={ () => setOpenEditPassword(true)} className='cursor-pointer mt-5 text-[#da8127] hover:text-[#b9671f]'>
+              <RiEdit2Line size={18}/>
             </button>
           </div>
         </div>
