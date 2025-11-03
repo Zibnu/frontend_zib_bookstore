@@ -117,12 +117,12 @@ function Transaction() {
                   className="flex gap-4 mb-3 border-b border-gray-300 pb-3"
                 >
                   <img
-                    src={item.book.cover_path}
-                    alt={item.book.title}
+                    src={item.book?.cover_path || "/placeholder.png"}
+                    alt={item.book?.title || "Buku Telah Dihapus"}
                     className="w-16 h-20 object-cover rounded"
                   />
                   <div className="flex-1">
-                    <p className="font-medium">{item.book.title}</p>
+                    <p className="font-medium">{item.book?.title || "Buku Telah Dihapus"}</p>
                     <p className="text-gray-600">
                       {item.quantity} x {formatRupiah(item.price_cent)}
                     </p>
