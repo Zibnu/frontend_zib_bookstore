@@ -13,9 +13,10 @@ import Checkout from "../pages/Checkout";
 import SuccessCheckout from "../pages/SuccessCheckout";
 import Search from "../pages/Search";
 import CategoryDetail from "../pages/CategoryDetail";
-
+import AdminLayout from "../layouts/adminLayout";
 import GuestRoute from "./GuestRoute";
 import ProtectedRoute from "./ProtectedRoute";
+import Dashboard from "../Admin/pages/Dashboard";
 
 export default function AppRouter () {
   return (
@@ -71,7 +72,9 @@ export default function AppRouter () {
         </GuestRoute>
         }/>
 
-      
+      <Route element={<AdminLayout/>}>
+        <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
+      </Route>
     </Routes>
   )
 }
