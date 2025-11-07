@@ -17,6 +17,7 @@ import AdminLayout from "../layouts/adminLayout";
 import GuestRoute from "./GuestRoute";
 import ProtectedRoute from "./ProtectedRoute";
 import Dashboard from "../Admin/pages/Dashboard";
+import Books from "../Admin/pages/Books";
 
 export default function AppRouter () {
   return (
@@ -74,6 +75,7 @@ export default function AppRouter () {
 
       <Route element={<AdminLayout/>}>
         <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
+        <Route path="/admin/books" element={<Books/>}></Route>
       </Route>
     </Routes>
   )

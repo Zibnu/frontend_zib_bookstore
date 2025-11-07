@@ -12,7 +12,7 @@ function DeleteConfirmModal({onClose, onConfirm}) {
           Hapus Ulasan Ini?
         </h3>
         <p className="text-sm to-gray-500 mb-4">
-          Tindakan Ini Tidak Dapat Dibatalkan
+          Tindakan Ini Akan Menghapus Ulasanmu Secara Permanen
         </p>
 
         <div className="flex justify-center gap-3">

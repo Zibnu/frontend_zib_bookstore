@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaHome, FaBook, FaClipboardList, FaUsers} from "react-icons/fa";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import { TbLayoutSidebarRightCollapse, TbLayoutSidebarLeftCollapse } from "react-icons/tb";
 import {toast} from "react-hot-toast";
 import { motion } from "framer-motion";
 import { Navigate, NavLink, useNavigate } from 'react-router-dom';
@@ -31,9 +32,9 @@ function Sidebar() {
     >
       <button
       onClick={() => setIsOpen(!isOpen)}
-      className='absolute -right-3 top-6 bg-green-300 p-1 rounded-full shadow'
+      className='absolute -right-3 top-6 bg-green-300 p-2 rounded-full shadow'
       >
-        {isOpen ? "<" : ">"}
+        {isOpen ? <TbLayoutSidebarLeftCollapse size={20}/> : <TbLayoutSidebarRightCollapse size={20}/>}
       </button>
 
       <div className="flex items-center gap-2 mb-8 mt-4 px-2">
@@ -62,9 +63,9 @@ function Sidebar() {
       {/* Log Out */}
       <button 
       onClick={handleLogout}
-      className='mt-auto flex items-center gap-3 px-4 py-2 rounded-md text-red-600 hover:bg-red-100 transition cursor-pointer'
+      className='mt-auto flex items-center gap-3 px-5 py-3 rounded-md text-red-600 hover:bg-red-100 transition cursor-pointer'
       >
-        <RiLogoutCircleRLine/> Logout
+        <RiLogoutCircleRLine/> logout
       </button>
     </motion.div>
   )

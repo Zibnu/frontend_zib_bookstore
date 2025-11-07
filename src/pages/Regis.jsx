@@ -10,8 +10,8 @@ function Regis() {
     email: "",
     password: "",
   });
-
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = async (e) => {
@@ -24,7 +24,7 @@ function Regis() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
+    setLoading(true);
     try {
       await apiServices.post("/auth/register", form);
       toast.success("Registrasi Berhasil Silahkan login");
@@ -33,8 +33,11 @@ function Regis() {
       const message =
         error.response?.data?.message || "Gagal Melakukan Registrasi";
       toast.error(message);
+    } finally {
+      setLoading(false);
     }
   };
+  
   return (
     <div className=" min-h-screen w-screen flex  items-center justify-center bg-[#2C3E2F]">
       <div className="bg-[#FBF6EE] rounded-2xl shadow-xl w-[850px] flex items-center p-12">
@@ -81,9 +84,12 @@ function Regis() {
             <hr className="border-gray-400 mb-3 "/>
             <button
               type="submit"
-              className="bg-[#da8127] text-white py-2 rounded-lg hover:bg-[#b9671f] transition"
+              disabled={loading}
+              className={`text-white py-2 rounded-lg transition
+                ${loading ? "bg-[#da8127]" : "bg-[#da8127] hover:bg-[#b9671f]"}
+                `}
             >
-              Daftar
+              {loading ? "Memproses....." : "Daftar"}
             </button>
             <div className="mt-4 text-center ">
           <p className="text-sm  text-[#333333]">
