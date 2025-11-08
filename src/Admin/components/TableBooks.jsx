@@ -74,7 +74,7 @@ function TableBooks({books, onDetail, onEdit, onDelete}) {
           ) : (
             <tr>
               <td colSpan="8" className='text-center p-4 text-gray-500'>
-                Belum Ada Buku Yang Dijual
+                The book is not available yet
               </td>
             </tr>
           )}

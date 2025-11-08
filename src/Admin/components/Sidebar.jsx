@@ -32,7 +32,7 @@ function Sidebar() {
     >
       <button
       onClick={() => setIsOpen(!isOpen)}
-      className='absolute -right-3 top-6 bg-green-300 p-2 rounded-full shadow'
+      className='absolute -right-3 top-6 bg-[#da8127] p-2 rounded-full shadow cursor-pointer'
       >
         {isOpen ? <TbLayoutSidebarLeftCollapse size={20}/> : <TbLayoutSidebarRightCollapse size={20}/>}
       </button>
@@ -58,14 +58,13 @@ function Sidebar() {
         ))}
       </nav>
 
-      <hr className="border border-gray-400 my-2" />
-
       {/* Log Out */}
       <button 
       onClick={handleLogout}
-      className='mt-auto flex items-center gap-3 px-5 py-3 rounded-md text-red-600 hover:bg-red-100 transition cursor-pointer'
+      className={`mt-auto flex items-center ${isOpen ? "gap-3 px-5 justify-start" : "justify-center px-0"} py-3 rounded-md text-red-600 hover:bg-red-100 transition cursor-pointer`}
       >
-        <RiLogoutCircleRLine/> logout
+        <RiLogoutCircleRLine/>
+        {isOpen && <span>Logout</span>}
       </button>
     </motion.div>
   )
