@@ -61,8 +61,10 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
         }
       });
 
-      await apiServices.put(`/books/update/${book.id_book}`, setFormData, {
-        headers : { Authorization : `Bearer ${token}`},
+      await apiServices.put(`/books/${book.id_book}`, form, {
+        headers : {
+          Authorization : `Bearer ${token}`
+        },
       });
 
       toast.success("Update Book Success");
@@ -100,7 +102,6 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               value={formData.title}
               onChange={handleChange}
               className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
-              required
               />
             </div>
 
@@ -109,10 +110,9 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               <input 
               type="text" 
               name='author'
-              value={formData.title}
+              value={formData.author}
               onChange={handleChange}
               className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
-              required
               />
             </div>
 
@@ -124,7 +124,6 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               onChange={handleChange}
               className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               rows={5}
-              required
               />
             </div>
 
@@ -132,11 +131,10 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               <label className="text-sm font-medium">Category</label>
               <select 
               type="text" 
-              name='category'
+              name='category_id'
               value={formData.category_id}
               onChange={handleChange}
               className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
-              required
               >
                 <option value="">Select Category</option>
                 {categories.map((category) => (
@@ -151,11 +149,10 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               <label className="text-sm font-medium">Price</label>
               <input 
               type="number" 
-              name='price'
+              name='price_cents'
               value={formData.price_cents}
               onChange={handleChange}
               className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
-              required
               />
             </div>
 
@@ -167,7 +164,6 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               value={formData.stock}
               onChange={handleChange}
               className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
-              required
               />
             </div>
 
@@ -178,7 +174,6 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               accept="image/*"
               onChange={handleFileChange}
               className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
-              required
               />
             </div>
 
