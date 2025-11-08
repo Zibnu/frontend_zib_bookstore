@@ -47,7 +47,8 @@ function TableBooks({books, onDetail, onEdit, onDelete}) {
                 <td className="p-3 border">{book.stock}</td>
                 <td className="p-3 border">{book.category?.name_category}</td>
                 <td className="p-3 border"><IoIosStar className='text-yellow-300'/>{book.averageRating}</td>
-                <td className="p-3 border flex items-center gap-3">
+                <td className="p-3 border text-center align-middle">
+                  <div className="flex justify-center items-center gap-3">
                   <button
                   onClick={() => onDetail(book.id_book)}
                   className='text-[#da8127] hover:text-[#b9671f] cursor-pointer'
@@ -66,6 +67,7 @@ function TableBooks({books, onDetail, onEdit, onDelete}) {
                   >
                     <RiDeleteBin6Fill/>
                   </button>
+                  </div>
                 </td>
               </tr>
             ))

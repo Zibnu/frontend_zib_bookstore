@@ -55,7 +55,7 @@ function DeleteModal({isOpen, onClose, onSuccess}) {
             <p className="text-center text-gray-700">Are you sure want to delete book :</p>
             <p className="text-center font-semibold mt-1 mb-4">"{book.title}"</p>
 
-            <div className="flex justify-end gap-3 mt-6">
+            <div className="flex justify-center gap-3 mt-6">
               <button
               onClick={onClose}
               className='px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg cursor-pointer transition'

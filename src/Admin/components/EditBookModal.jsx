@@ -88,7 +88,7 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
         initial={{scale : 0.8 , opacity : 0}}
         animate={{scale : 1, opacity : 1}}
         exit={{scale : 0.8, opacity : 0}}
-        className="bg-white p-6 rounded-lg w-full max-w-xl shadow-lg">
+        className="bg-white p-6 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-lg relative">
           <h2 className="text-lg font-semibold mb-4">Edit Book</h2>
 
           <form onSubmit={handleSubmit} className='space-y-4'>
@@ -99,7 +99,7 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               name='title'
               value={formData.title}
               onChange={handleChange}
-              className='w-full border p-2 rounded'
+              className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
             </div>
@@ -111,7 +111,7 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               name='author'
               value={formData.title}
               onChange={handleChange}
-              className='w-full border p-2 rounded'
+              className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
             </div>
@@ -122,7 +122,7 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               name='description'
               value={formData.description}
               onChange={handleChange}
-              className='w-full border p-2 rounded'
+              className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               rows={5}
               required
               />
@@ -135,7 +135,7 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               name='category'
               value={formData.category_id}
               onChange={handleChange}
-              className='w-full border p-2 rounded'
+              className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               >
                 <option value="">Select Category</option>
@@ -154,7 +154,7 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               name='price'
               value={formData.price_cents}
               onChange={handleChange}
-              className='w-full border p-2 rounded'
+              className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
             </div>
@@ -166,7 +166,7 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               name='stock'
               value={formData.stock}
               onChange={handleChange}
-              className='w-full border p-2 rounded'
+              className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
             </div>
@@ -175,9 +175,9 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               <label className="text-sm font-medium">Cover Image</label>
               <input 
               type="file" 
-              accept="/image*"
+              accept="image/*"
               onChange={handleFileChange}
-              className='w-full border p-2 rounded'
+              className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               required
               />
             </div>

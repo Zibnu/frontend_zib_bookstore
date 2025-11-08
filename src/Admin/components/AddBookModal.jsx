@@ -76,7 +76,7 @@ function AddBookModal({isOpen, onClose, onSuccess}) {
           initial={{scale : 0.8, opacity : 0}}
           animate={{scale : 1, opacity : 1}}
           exit={{scale : 0.8, opacity : 0}}
-          className="bg-white p-6 rounded-lg w-full max-w-lg shadow-lg">
+          className="bg-white p-6 rounded-lg w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-lg">
             <h2 className="text-lg font-semibold mb-4">Add New Book</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -84,10 +84,9 @@ function AddBookModal({isOpen, onClose, onSuccess}) {
                 <input 
                 type="text" 
                 name="title" 
-                placeholder="title" 
                 value={formData.title}
                 onChange={handleChange}
-                className='w-full border p-2 rounded'
+                className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
                 required
                 />
               </div>
@@ -97,10 +96,9 @@ function AddBookModal({isOpen, onClose, onSuccess}) {
                 <input 
                 type="text" 
                 name="author" 
-                placeholder="author" 
                 value={formData.author}
                 onChange={handleChange}
-                className='w-full border p-2 rounded'
+                className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
                 required
                 />
               </div>
@@ -109,10 +107,9 @@ function AddBookModal({isOpen, onClose, onSuccess}) {
                 <label className="text-sm font-medium">Description</label>
                 <textarea 
                 name="description"
-                placeholder='description'
                 value={formData.description}
                 onChange={handleChange}
-                className='w-full border p-2 rounded'
+                className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
                 rows={5}
                 required
                 />
@@ -124,7 +121,7 @@ function AddBookModal({isOpen, onClose, onSuccess}) {
                 name="category_id" 
                 value={formData.category_id}
                 onChange={handleChange}
-                className='w-full border p-2 rounded'
+                className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
                 required
                 >
                   <option value="">Select Category</option>
@@ -143,7 +140,7 @@ function AddBookModal({isOpen, onClose, onSuccess}) {
                 name="price_cents" 
                 value={formData.price_cents}
                 onChange={handleChange}
-                className='w-full border p-2 rounded'
+                className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
                 required
                 />
               </div>
@@ -155,7 +152,7 @@ function AddBookModal({isOpen, onClose, onSuccess}) {
                 name="stock" 
                 value={formData.stock}
                 onChange={handleChange}
-                className='w-full border p-2 rounded'
+                className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
                 required
                 />
               </div>
@@ -166,7 +163,7 @@ function AddBookModal({isOpen, onClose, onSuccess}) {
                 type="file" 
                 accept="image/*" 
                 onChange={handleFileChange}
-                className='w-full border p-2 rounded'
+                className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
                 required
                 />
               </div>
