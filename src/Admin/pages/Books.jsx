@@ -56,7 +56,7 @@ function Books() {
   return (
     <div className="bg-[#ffffff] p-6 rounded-xl shadow">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">All Books List</h2>
+        <h3 className="text-xl font-semibold">All Books List</h3>
         <input
           type="text"
           placeholder="Search Book by Title"
