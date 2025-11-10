@@ -74,7 +74,7 @@ function TableOrders({orders = [], shipmentsMap = {}, onUpdateSuccess, onOpenUse
                     <select
                     value={shipment?.status}
                     onChange={(e) => handleStatusChange(shipment?.id_shipment, e.target.value)}
-                    className='px-2 py-1 border border-gray-300 rounded-lg'
+                    className='px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
                     >
                       <option value="processing">processing</option>
                       <option value="shipped">shipped</option>
