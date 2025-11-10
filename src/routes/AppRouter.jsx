@@ -19,6 +19,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Dashboard from "../Admin/pages/Dashboard";
 import Books from "../Admin/pages/Books";
 import Orders from "../Admin/pages/Orders";
+import Users from "../Admin/pages/Users";
 
 export default function AppRouter () {
   return (
@@ -78,6 +79,7 @@ export default function AppRouter () {
         <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
         <Route path="/admin/books" element={<Books/>}></Route>
         <Route path="/admin/orders" element={<Orders/>}></Route>
+        <Route path="/admin/users" element={<Users/>}></Route>
       </Route>
     </Routes>
   )

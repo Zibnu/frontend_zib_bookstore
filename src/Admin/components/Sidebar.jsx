@@ -58,10 +58,12 @@ function Sidebar() {
         ))}
       </nav>
 
+      <hr className="border-gray-400 my-2" />
+
       {/* Log Out */}
       <button 
       onClick={handleLogout}
-      className={`mt-auto flex items-center ${isOpen ? "gap-3 px-5 justify-start" : "justify-center px-0"} py-3 rounded-md text-red-600 hover:bg-red-100 transition cursor-pointer`}
+      className={`mt-2 flex items-center ${isOpen ? "gap-3 px-5 justify-start" : "justify-center px-0"} py-3 rounded-md text-red-600 hover:bg-red-100 transition cursor-pointer`}
       >
         <RiLogoutCircleRLine/>
         {isOpen && <span>Logout</span>}

@@ -75,7 +75,7 @@ function Orders() {
 
   const handleCloseUserModal = () => setSelectedShipmentForUserModal(null);
 
-  const refresh = () => fetchData();
+  // const refresh = () => fetchData();
 
   return (
     <div className='p-6 bg-white rounded-xl shadow'>
@@ -100,7 +100,7 @@ function Orders() {
       <TableOrders
       orders={orders}
       shipmentsMap={shipmentsMap}
-      onUpdateSuccess={refresh}
+      onUpdateSuccess={fetchData}
       onOpenUserModal={handleOpenUserModal}
       loading={loading}
       />

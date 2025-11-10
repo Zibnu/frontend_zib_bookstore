@@ -32,13 +32,13 @@ function TableOrders({orders = [], shipmentsMap = {}, onUpdateSuccess, onOpenUse
     <div className='w-full overflow-x-auto mt-4'>
       <table className='w-full border-collapse text-sm'>
         <thead>
-          <tr className='bg-gray-100 text-left'>
-            <th className="p-3 border">No</th>
-            <th className="p-3 border">User</th>
-            <th className="p-3 border">Books</th>
-            <th className="p-3 border">Total</th>
-            <th className="p-3 border">Status</th>
-            <th className="p-3 border">Action</th>
+          <tr className='bg-gray-100 text-gray-500 text-left'>
+            <th className="p-3 border border-gray-300">No</th>
+            <th className="p-3 border border-gray-300">User</th>
+            <th className="p-3 border border-gray-300">Books</th>
+            <th className="p-3 border border-gray-300">Total</th>
+            <th className="p-3 border border-gray-300">Status</th>
+            <th className="p-3 border border-gray-300">Action</th>
           </tr>
         </thead>
 
@@ -59,22 +59,22 @@ function TableOrders({orders = [], shipmentsMap = {}, onUpdateSuccess, onOpenUse
 
               return (
                 <tr key={order.id_order} className='border hover:bg-gray-50 align-top'>
-                  <td className="p-3 border align-middle">{index + 1}</td>
-                  <td className="p-3 border align-middle">{order.user?.username || "-"}</td>
-                  <td className="p-3 border align-middle max-w-[340px] break-words">
+                  <td className="p-3 border border-gray-300 align-middle">{index + 1}</td>
+                  <td className="p-3 border border-gray-300 align-middle">{order.user?.username || "-"}</td>
+                  <td className="p-3 border border-gray-300 align-middle max-w-[340px] break-words">
                     {(order.orderItems).map((item, index) => (
                       <div key={index} className="mb-1">
                         {item.book?.title || "Book Has Deleted"} Qty : {item.quantity}
                       </div>
                     ))}
                   </td>
-                  <td className="p-3 border align-middle">{formatRupiah(order.total_cents)}</td>
-                  <td className="p-3 border align-middle">
+                  <td className="p-3 border border-gray-300 align-middle">{formatRupiah(order.total_cents)}</td>
+                  <td className="p-3 border border-gray-300 align-middle">
                     {/* sts dropdown */}
                     <select
                     value={shipment?.status}
                     onChange={(e) => handleStatusChange(shipment?.id_shipment, e.target.value)}
-                    className='px-2 py-1 border rounded-lg'
+                    className='px-2 py-1 border border-gray-300 rounded-lg'
                     >
                       <option value="processing">processing</option>
                       <option value="shipped">shipped</option>
@@ -83,7 +83,7 @@ function TableOrders({orders = [], shipmentsMap = {}, onUpdateSuccess, onOpenUse
                       {(!shipment) && <option value="unknown">unknown</option>}
                     </select>
                   </td>
-                  <td className="p-3 border align-middle text-center">
+                  <td className="p-3 border border-gray-300 align-middle text-center">
                     <button 
                     onClick={() => onOpenUserModal(shipment)}
                     className="text-[#da8127] hover:text-[#b9671f] cursor-pointer">

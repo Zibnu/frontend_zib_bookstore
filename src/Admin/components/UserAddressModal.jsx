@@ -35,12 +35,12 @@ function UserAddressModal({isOpen, shipment, onClose}) {
               </div>
 
               <div>
-                <div className="text-sm to-gray-500">Phone</div>
+                <div className="text-sm text-gray-500">Phone</div>
                 <div className="font-medium">{address.phone}</div>
               </div>
 
               <div>
-                <div className="text-sm to-gray-500">Address</div>
+                <div className="text-sm text-gray-500">Address</div>
                 <div className="font-medium">{address.street}, {address.provinces}, {address.postal_code}</div>
               </div>
             </div>

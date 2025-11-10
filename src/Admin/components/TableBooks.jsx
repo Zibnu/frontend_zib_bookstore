@@ -15,15 +15,15 @@ function TableBooks({books, onDetail, onEdit, onDelete}) {
     <div className="w-full overflow-x-auto mt-4">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="bg-gray-100 text-left">
-            <th className="p-3 border">No</th>
-            <th className="p-3 border">Cover</th>
-            <th className="p-3 border">Title</th>
-            <th className="p-3 border">Price</th>
-            <th className="p-3 border">Stock</th>
-            <th className="p-3 border">Category</th>
-            <th className="p-3 border">Rating</th>
-            <th className="p-3 border">Action</th>
+          <tr className="bg-gray-100 text-gray-500 text-left">
+            <th className="p-3 border border-gray-300">No</th>
+            <th className="p-3 border border-gray-300">Cover</th>
+            <th className="p-3 border border-gray-300">Title</th>
+            <th className="p-3 border border-gray-300">Price</th>
+            <th className="p-3 border border-gray-300">Stock</th>
+            <th className="p-3 border border-gray-300">Category</th>
+            <th className="p-3 border border-gray-300">Rating</th>
+            <th className="p-3 border border-gray-300">Action</th>
           </tr>
         </thead>
 
@@ -34,20 +34,20 @@ function TableBooks({books, onDetail, onEdit, onDelete}) {
               key={book.id_book}
               className='border hover:bg-gray-50'
               >
-                <td className="p-3 border">{index + 1}</td>
-                <td className='p-3 border'>
+                <td className="p-3 border border-gray-300">{index + 1}</td>
+                <td className='p-3 border border-gray-300'>
                   <img
                   src={book.cover_path}
                   alt={book.title}
                   className='w-12 h-16 object-cover'
                   />
                 </td>
-                <td className="p-3 border">{book.title}</td>
-                <td className="p-3 border">{formatRupiah(book.price_cents)}</td>
-                <td className="p-3 border">{book.stock}</td>
-                <td className="p-3 border">{book.category?.name_category}</td>
-                <td className="p-3 border"><IoIosStar className='text-yellow-300'/>{book.averageRating}</td>
-                <td className="p-3 border text-center align-middle">
+                <td className="p-3 border border-gray-300">{book.title}</td>
+                <td className="p-3 border border-gray-300">{formatRupiah(book.price_cents)}</td>
+                <td className="p-3 border border-gray-300">{book.stock}</td>
+                <td className="p-3 border border-gray-300">{book.category?.name_category}</td>
+                <td className="p-3 border border-gray-300"><IoIosStar className='text-yellow-300'/>{book.averageRating}</td>
+                <td className="p-3 border border-gray-300 text-center align-middle">
                   <div className="flex justify-center items-center gap-3">
                   <button
                   onClick={() => onDetail(book.id_book)}
