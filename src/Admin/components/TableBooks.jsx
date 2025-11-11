@@ -4,7 +4,7 @@ import { RiEdit2Line, RiDeleteBin6Fill } from "react-icons/ri";
 import { IoIosStar } from "react-icons/io";
 
 
-function TableBooks({books, onDetail, onEdit, onDelete}) {
+function TableBooks({books, onDetail, onEdit, onDelete, currentPage, limit}) {
     const formatRupiah = (value) => {
     if (!value && value !== 0) return "0";
     const cleaned = value.toString().replace(/[^\d]/g, "");
@@ -34,7 +34,7 @@ function TableBooks({books, onDetail, onEdit, onDelete}) {
               key={book.id_book}
               className='border hover:bg-gray-50'
               >
-                <td className="p-3 border border-gray-300">{index + 1}</td>
+                <td className="p-3 border border-gray-300">{(currentPage - 1) * limit + (index + 1)}</td>
                 <td className='p-3 border border-gray-300'>
                   <img
                   src={book.cover_path}

@@ -4,12 +4,15 @@ import toast from 'react-hot-toast';
 import TableOrders from '../components/TableOrders';
 import UserAddressModal from '../components/UserAddressModal';
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
+
 function Orders() {
   const [orders, setOrders] = useState([]);
-  const [shipmentsMap, setShipmentsMap] = useState({});
+  // const [shipmentsMap, setShipmentsMap] = useState({});
   const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
-  const [statusFilter, setStatusFilter] = useState("");
+  const [shipmentStatus, setShipmentStatus] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedShipmentForUserModal, setSelectedShipmentForUserModal] = useState(null);
 
@@ -19,33 +22,42 @@ function Orders() {
       const token = localStorage.getItem("token");
 
       const orderRes = await apiServices.get("/order/admin/all", {
-        params : {page},
+        params : {
+          page,
+          limit : 12,
+          shipment_status : shipmentStatus || undefined,
+        },
         headers : {Authorization : `Bearer ${token}`},
       });
-
-      let fetchOrders = orderRes.data?.data?.orders;
-      const pagination = orderRes.data?.data?.pagination.totalPages;
+      
+      const fetchOrders = orderRes.data?.data?.orders;
+      const pagination = orderRes.data?.data?.pagination;
       // console.log(fetchOrders[0].orderItems[0].book.title);
+      // console.log(fetchOrders.length); berisi 12
 
-      const shipmentsRes = await apiServices.get("/shipment/log-shipment", {
-        headers : { Authorization : `Bearer ${token}`},
-      });
-      const shipments = shipmentsRes.data?.data?.shipment;
-      const map = {};
-      shipments.forEach((shipment) => {
-        if(shipment.order_id) map[shipment.order_id] = shipment;
-      });
-      setShipmentsMap(map);
+      // const shipmentsRes = await apiServices.get("/shipment/log-shipment", {
+      //   params : {
+      //     page,
+      //     limit : 12,
+      //     search : search || undefined
+      //   },
+      //   headers : { Authorization : `Bearer ${token}`},
+      // });
+      
+      // const shipments = shipmentsRes.data?.data?.shipment;
 
-      if(statusFilter){
-        fetchOrders = fetchOrders.filter(order => {
-          const shipment = map[order.id_order];
-          return shipment && shipment.status === statusFilter;
-        });
-      }
+      // const map = {};
+      // shipments.forEach((shipment) => {
+      //   if(shipment.order_id) map[shipment.order_id] = shipment;
+      // });
+
+      // const filteredOrders = search ? fetchOrders.filter(order => map[order.id_order]) : fetchOrders;
 
       setOrders(fetchOrders);
-      setTotalPages(pagination);
+      setTotalPages(pagination.totalPages);
+      setLimit(pagination.itemsPerPage)
+      setCurrentPage(pagination.currentPage)
+      // console.log(pagination.itemsPerPage)
 
     } catch (error) {
       console.error(error);
@@ -57,17 +69,17 @@ function Orders() {
 
   useEffect(() => {
     fetchData();
-  }, [page, statusFilter]);
+  }, [page, shipmentStatus]);
 
   const handleChangePage = (next) => {
     if(next && page < totalPages) setPage((p) => p + 1)
     if(!next && page > 1) setPage((p) => p - 1)
   }
 
-  const handleStatusFilterClick = (status) => {
+  const handleStatusChange = (e) => {
+    setShipmentStatus(e.target.value);
     setPage(1);
-    setStatusFilter((prev) => (prev === status ? "" : status));
-  }
+  };
 
   const handleOpenUserModal = (shipment) => {
     setSelectedShipmentForUserModal(shipment);
@@ -82,27 +94,27 @@ function Orders() {
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-xl font-semibold">All Orders User</h3>
 
-        <div className="flex items-center gap-2">
-          {["processing", "shipped", "delivery", "canceled"].map((status) => (
-            <button 
-            key={status}
-            onClick={() => handleStatusFilterClick(status)}
-            className={`px-3 py-1 rounded-lg text-sm font-medium cursor-pointer transition
-              ${statusFilter === status ? "bg-[#da8127] text-white" : "bg-gray-100 text-gray-700 hover:bg-[#da8127] hover:text-white"}
-              `}
-            >
-              {status[0].toUpperCase() + status.slice(1)}
-            </button>
-          ))}
-        </div>
+        <select 
+        value={shipmentStatus} 
+        onChange={handleStatusChange}
+        className='border border-gray-300 rounded-lg px-3 py-2 text-sm w-60 bg-white focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
+        >
+          <option value="">Filter Status</option>
+          <option value="processing">Processing</option>
+          <option value="shipped">Shipped</option>
+          <option value="delivery">Delivery</option>
+          <option value="canceled">Canceled</option>
+        </select>
       </div>
 
       <TableOrders
       orders={orders}
-      shipmentsMap={shipmentsMap}
+      // shipmentsMap={shipmentsMap}
       onUpdateSuccess={fetchData}
       onOpenUserModal={handleOpenUserModal}
       loading={loading}
+      currentPage={currentPage}
+      limit={limit}
       />
 
       {/* Pagination */}

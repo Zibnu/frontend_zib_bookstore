@@ -40,7 +40,8 @@ function Login () {
         return;
       }
       localStorage.setItem("token", token);
-      localStorage.setItem("userId", user)
+      localStorage.setItem("userId", user);
+      localStorage.setItem("role", role);
 
       toast.success("login Berhasil");
       if(role === "admin"){

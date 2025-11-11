@@ -15,7 +15,8 @@ import Search from "../pages/Search";
 import CategoryDetail from "../pages/CategoryDetail";
 import AdminLayout from "../layouts/adminLayout";
 import GuestRoute from "./GuestRoute";
-import ProtectedRoute from "./ProtectedRoute";
+import AdminRoute from "./AdminRoute";
+import UserRoute from "./UserRoute";
 import Dashboard from "../Admin/pages/Dashboard";
 import Books from "../Admin/pages/Books";
 import Orders from "../Admin/pages/Orders";
@@ -31,34 +32,34 @@ export default function AppRouter () {
         <Route path="/category/:id" element={<CategoryDetail/>}></Route>
 
         <Route path="/profile/akun" element={
-          <ProtectedRoute>
+          <UserRoute>
             <Profile/>
-          </ProtectedRoute>
+          </UserRoute>
           }></Route>
         <Route path="/profile/transaksi" element={
-          <ProtectedRoute>
+          <UserRoute>
             <Transaction/>
-          </ProtectedRoute>
+          </UserRoute>
           }></Route>
         <Route path="/profile/ulasan" element={
-          <ProtectedRoute>
+          <UserRoute>
             <Review/>
-          </ProtectedRoute>
+          </UserRoute>
           }></Route>
         <Route path="/profile/alamat" element={
-          <ProtectedRoute>
+          <UserRoute>
             <Address/>
-          </ProtectedRoute>
+          </UserRoute>
           }></Route>
         <Route path="/cart" element={
-          <ProtectedRoute>
+          <UserRoute>
             <Cart/>
-          </ProtectedRoute>
+          </UserRoute>
           }></Route>
         <Route path="/checkout" element={
-          <ProtectedRoute>
+          <UserRoute>
             <Checkout/>
-          </ProtectedRoute>
+          </UserRoute>
           }></Route>
       </Route>
 
@@ -76,10 +77,26 @@ export default function AppRouter () {
         }/>
 
       <Route element={<AdminLayout/>}>
-        <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
-        <Route path="/admin/books" element={<Books/>}></Route>
-        <Route path="/admin/orders" element={<Orders/>}></Route>
-        <Route path="/admin/users" element={<Users/>}></Route>
+        <Route path="/admin/dashboard" element={
+          <AdminRoute>
+            <Dashboard/>
+          </AdminRoute>
+          }></Route>
+        <Route path="/admin/books" element={
+          <AdminRoute>
+            <Books/>
+          </AdminRoute>
+          }></Route>
+        <Route path="/admin/orders" element={
+          <AdminRoute>
+            <Orders/>
+          </AdminRoute>
+          }></Route>
+        <Route path="/admin/users" element={
+          <AdminRoute>
+            <Users/>
+          </AdminRoute>
+          }></Route>
       </Route>
     </Routes>
   )

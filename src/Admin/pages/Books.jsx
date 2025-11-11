@@ -13,6 +13,8 @@ function Books() {
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [limit, setLimit] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
 
   const [openAdd, setOpenAdd] = useState(false);
@@ -28,8 +30,11 @@ function Books() {
           search,
         },
       });
+      const pagination = res.data.data.pagination;
       setBooks(res.data.data.books);
-      setTotalPages(res.data.data.pagination.totalPages);
+      setTotalPages(pagination.totalPages);
+      setCurrentPage(pagination.currentPage);
+      setLimit(pagination.itemsPerPage);
     } catch (error) {
       toast(error.response?.data?.message || "Gagal Mengambil data Buku");
       console.error(error);
@@ -77,6 +82,8 @@ function Books() {
         onDetail={handleDetail}
         onEdit={handleEdit}
         onDelete={handleDelete}
+        currentPage={currentPage}
+        limit={limit}
       />
 
       <div className="flex items-center justify-center gap-4 mt-4">

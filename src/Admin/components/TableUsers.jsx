@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TableUsers({users, loading}) {
+function TableUsers({users, loading, currentPage, limit}) {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("id-ID", {
@@ -31,7 +31,7 @@ function TableUsers({users, loading}) {
           ) : users.length > 0 ? (
             users.map((user,index) => (
               <tr key={index} className="">
-                <td className="px-3 py-2 border border-gray-300">{index + 1}</td>
+                <td className="px-3 py-2 border border-gray-300">{(currentPage -1) * limit + (index + 1)}</td>
                 <td className="px-3 py-2 border border-gray-300 capitalize">{user.username}</td>
                 <td className="px-3 py-2 border border-gray-300">{user.email}</td>
                 <td className="px-3 py-2  border border-gray-300 font-medium">{user.role}</td>

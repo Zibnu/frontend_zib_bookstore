@@ -4,7 +4,7 @@ import { VscEye } from "react-icons/vsc";
 import toast from 'react-hot-toast';
 
 
-function TableOrders({orders = [], shipmentsMap = {}, onUpdateSuccess, onOpenUserModal, loading}) {
+function TableOrders({orders = [],  onUpdateSuccess, currentPage, limit,onOpenUserModal, loading}) {
     const formatRupiah = (value) => {
     if (!value && value !== 0) return "0";
     const cleaned = value.toString().replace(/[^\d]/g, "");
@@ -49,7 +49,7 @@ function TableOrders({orders = [], shipmentsMap = {}, onUpdateSuccess, onOpenUse
             </tr>
           ) : (
             orders.map((order, index) => {
-              const shipment = shipmentsMap[order.id_order] || null;
+              const shipment = order.shipment || null;
               // console.log(shipment);
               // const booksList = (order.orderItems || []).map((item) => {
               //   const title = item.book?.title || "Buku Tidak Tersedia"
@@ -59,7 +59,7 @@ function TableOrders({orders = [], shipmentsMap = {}, onUpdateSuccess, onOpenUse
 
               return (
                 <tr key={order.id_order} className='border hover:bg-gray-50 align-top'>
-                  <td className="p-3 border border-gray-300 align-middle">{index + 1}</td>
+                  <td className="p-3 border border-gray-300 align-middle">{(currentPage -1) * limit + (index + 1)}</td>
                   <td className="p-3 border border-gray-300 align-middle">{order.user?.username || "-"}</td>
                   <td className="p-3 border border-gray-300 align-middle max-w-[340px] break-words">
                     {(order.orderItems).map((item, index) => (

@@ -8,6 +8,8 @@ import { motion } from 'framer-motion';
 function Users() {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [limit, setLimit] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
 
@@ -20,8 +22,11 @@ function Users() {
         headers : { Authorization : `Bearer ${token}`}
       });
       
+      const pagination = res.data.data.pagination
       setUsers(res.data.data.users);
-      setTotalPages(res.data.data.pagination.totalPages);
+      setTotalPages(pagination.totalPages);
+      setCurrentPage(pagination.currentPage);
+      setLimit(pagination.itemsPerPage);
     } catch (error) {
       console.error(error);
       toast.error(error.response?.data?.message || "Gagal Mendapatkan Data Users");
@@ -53,6 +58,8 @@ function Users() {
       <TableUsers
       users={users}
       loading={loading}
+      currentPage={currentPage}
+      limit={limit}
       />
 
       <div className="flex items-center justify-center gap-3 mt-6">

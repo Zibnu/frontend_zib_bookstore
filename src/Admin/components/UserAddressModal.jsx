@@ -26,7 +26,7 @@ function UserAddressModal({isOpen, shipment, onClose}) {
               <MdClose size={22}/>
             </button>
 
-            <h3 className="text-lg font-semibold mb-4">Customor & Address</h3>
+            <h3 className="text-lg font-semibold mb-4">Custumer & Detail Order</h3>
 
             <div className="space-y-2">
               <div>
