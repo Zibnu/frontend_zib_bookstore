@@ -3,9 +3,12 @@ import apiServices from "../utils/api";
 import { toast } from "react-hot-toast";
 import SideBarProfile from "../components/SideBarProfile";
 import TidakAdaTransaksi from "../assets/images/tidak ada transaksi.avif";
+import CancelOrdersModal from "../components/CancelOrdersModal";
 
 function Transaction() {
   const [orders, setOrders] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const formatRupiah = (value) => {
@@ -61,6 +64,21 @@ function Transaction() {
   useEffect(() => {
     fetchOrder();
   }, []);
+
+  const handleCancelOrder = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      await apiServices.post(`/order/${selectedOrderId}/canceled`, {}, {
+        headers : {Authorization : `Bearer ${token}`},
+      });
+      toast.success("Pesanan Berhaisl Dibatalkan");
+      setShowModal(false);
+      fetchOrder();
+    } catch (error) {
+      console.error(error);
+      toast.error(error.response?.data?.message || "Gagal Membatalkan Pesanan");
+    }
+  }
 
   if (loading)
     return (
@@ -167,12 +185,32 @@ function Transaction() {
                   >
                     {order.shipment?.status}
                   </span>
+
+                  {order.shipment?.status !== "delivery" &&
+                  order.shipment?.status !== "shipped" && 
+                  order.shipment?.status !== "canceled" &&
+                  (
+                    <button 
+                    onClick={() => {
+                      setSelectedOrderId(order.id_order);
+                      setShowModal(true);
+                    }}
+                    className="ml-2 px-2 py-1 text-xs bg-red-500 hover:bg-red-600 text-white rounded">
+                      Batalkan Pesanan
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
           ))
         )}
       </div>
+
+      <CancelOrdersModal
+      isOpen={showModal}
+      onClose={() => setShowModal(false)}
+      onConfirm={handleCancelOrder}
+      />
     </div>
   );
 }

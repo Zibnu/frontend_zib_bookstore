@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import IconBook from "../../assets/images/Buku Terlaris.png"
+import IconBook from "../../assets/images/bukuTerbaru.jpg"
 import BookCard from "../../components/BookCard"
 import apiServices from "../../utils/api";
 import { Link } from "react-router-dom";
@@ -36,8 +36,8 @@ function SectionBook() {
 
       {/* Header */}
       <div className="flex justify-between items-center mb-4 px-4">
-        <h2 className="text-lg font-bold text-[#333333]">Buku Terlaris</h2>
-        <Link to={"/category/terlaris"}>
+        <h2 className="text-lg font-bold text-[#333333]">Buku Terbaru</h2>
+        <Link to={"/books/terbaru"}>
         <p
         className="text-sm text-[#da8127] hover:underline cursor-pointer"
         >
@@ -47,7 +47,7 @@ function SectionBook() {
       </div>
 
       <div className="flex gap-4 relative ">
-        <div className="hidden md:block w-[220px] flex-shrink-0 translate-x-4">
+        <div className="hidden md:block w-[220px] flex-shrink-0 ">
           <img src={IconBook} alt="Banner" className="w-full object-cover rounded-xl" />
         </div>
 
@@ -67,7 +67,7 @@ function SectionBook() {
 
           {/* Mobile */}
           <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
-            { books.map((book, index) => (
+            { books.slice(0,10).map((book, index) => (
               <div key={index} className="snap-start">
                 <BookCard 
                 image={book.cover_path}

@@ -5,7 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 function UserAddressModal({isOpen, shipment, onClose}) {
   if(!shipment) return null;
 
+  // console.log(shipment);
   const address = shipment?.address || null;
+  const orderId = shipment?.order_id
 
   return (
     <AnimatePresence>
@@ -42,6 +44,11 @@ function UserAddressModal({isOpen, shipment, onClose}) {
               <div>
                 <div className="text-sm text-gray-500">Address</div>
                 <div className="font-medium">{address.street}, {address.provinces}, {address.postal_code}</div>
+              </div>
+
+              <div>
+                <div className="text-sm text-gray-500">Order ID :</div>
+                <div className="font-medium">{orderId}</div>
               </div>
             </div>
           </motion.div>

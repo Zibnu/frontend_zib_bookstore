@@ -24,7 +24,7 @@ function Navbar () {
       </Link>
 
       {/* Category */}
-      <Link to={"/category"} className="px-2 py-2 rounded-md transition text-[#FBF6EE] duration-200 hover:text-[#da8127]">
+      <Link to={"/categories"} className="px-2 py-2 rounded-md transition text-[#FBF6EE] duration-200 hover:text-[#da8127]">
       Kategori
       </Link>
 
