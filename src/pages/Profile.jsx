@@ -42,7 +42,7 @@ function Profile() {
   
   if(loading) return <div className="text-center py-10 text-gray-600">Memuat Profile....</div>
   return (
-    <div className='min-h-screen flex bg-[#FBF6EE]'>
+    <div className='min-h-screen flex flex-col md:flex-row bg-[#FBF6EE] pb-16 md:pb-0'>
 
       <SideBarProfile/>
 

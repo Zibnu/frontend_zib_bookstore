@@ -267,18 +267,18 @@ function DetailBook() {
           showMiniCart
             ? "translate-y-0 opacity-100"
             : "translate-y-full opacity-0"
-        } h-20 flex justify-between items-center px-4`}
+        } h-20 flex justify-between items-center px-4 overflow-hidden`}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-1 min-w-0">
           <img
             src={book.cover_path}
-            className="w-12 h-16 object-cover rounded"
+            className="w-12 h-16 object-cover rounded shrink-0"
           />
-          <div className="flex flex-col">
-            <span className="font-semibold text-[#333333] text-sm truncate">
+          <div className="flex flex-col min-w-0">
+            <span className="font-semibold text-[#333333] text-sm truncate block w-full">
               {book.title}
             </span>
-            <span className="text-xs text-[#757575]">{book.author}</span>
+            <span className="text-xs text-[#757575] truncate block w-full">{book.author}</span>
             <span className="text-sm text-[#da8127] font-bold">
               {formatRupiah(book.price_cents)}
             </span>
@@ -287,7 +287,7 @@ function DetailBook() {
 
         <button
           onClick={handleAddToCart}
-          className="px-4 py-2 cursor-pointer bg-[#da8127] text-white rounded-md hover:bg-[#b9671f] transition"
+          className="px-4 py-2 cursor-pointer bg-[#da8127] text-white rounded-md hover:bg-[#b9671f] transition shrink-0 ml-2"
         >
           + Keranjang
         </button>

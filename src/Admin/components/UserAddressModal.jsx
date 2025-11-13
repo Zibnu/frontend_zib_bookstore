@@ -33,22 +33,22 @@ function UserAddressModal({isOpen, shipment, onClose}) {
             <div className="space-y-2">
               <div>
                 <div className="text-sm text-gray-500">Name</div>
-                <div className="font-medium">{address?.full_name}</div>
+                <div className="font-medium">{address?.full_name || "Data Name is Deleted"}</div>
               </div>
 
               <div>
                 <div className="text-sm text-gray-500">Phone</div>
-                <div className="font-medium">{address.phone}</div>
+                <div className="font-medium">{address?.phone || "Data Phone is Deleted"}</div>
               </div>
 
               <div>
                 <div className="text-sm text-gray-500">Address</div>
-                <div className="font-medium">{address.street}, {address.provinces}, {address.postal_code}</div>
+                <div className="font-medium">{address?.street || "Data street is Deleted"}, {address?.provinces || "Data Provinces Is Deleted"}, {address?.postal_code || "Data Postal_code Is Deleted"}</div>
               </div>
 
               <div>
                 <div className="text-sm text-gray-500">Order ID :</div>
-                <div className="font-medium">{orderId}</div>
+                <div className="font-medium">{orderId || "Data OrderId is Deleted"}</div>
               </div>
             </div>
           </motion.div>

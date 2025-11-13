@@ -97,10 +97,10 @@ function Cart() {
   if(loading) return <div className="text-gray-500 text-center text-sm">Loading Cart ..... </div>
 
   return (
-    <div className='min-h-screen  bg-[#FBF6EE] p-8'>
-      <h1 className="text-2xl font-bold mb-6">Keranjang</h1>
+    <div className='min-h-screen  bg-[#FBF6EE] p-4 sm:p-8'>
+      <h1 className="text-2xl font-bold mb-6 text-[#2C3E2F] ">Keranjang</h1>
 
-      <div className="flex gap-6 items-center">
+      <div className="flex flex-col lg:flex-row gap-6 items-center">
         {/* Daftar Item */}
         <div className="flex-1 space-y-4">
           { cartItems.length > 0 ? (
@@ -141,13 +141,13 @@ function Cart() {
             ))}
             </>
           ) : (
-          <div className="bg-white p-10 rounded-xl shadow flex items-center justify-center text-center gap-10">
+          <div className="bg-white p-6 sm:p-10 rounded-xl shadow flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-10">
             <img
               src={empyCart}
               alt="Keranjang Kosong"
-              className="w-3xs h-auto object-contain opacity-70 mb-4"
+              className="w-32 sm:w-56 h-auto object-contain opacity-70 mb-4"
             />
-            <div className="text-left">
+            <div>
               <p className="text-lg font-medium">Keranjang Kamu Kosong</p>
               <p className="text-sm text-gray-500 mb-4">Kami mempunyai banyak buku yang siap menambah wawasan dan menghibur. Yuk Belanja Sekarang</p>
               <a 
@@ -161,7 +161,7 @@ function Cart() {
           )}
         </div>
 
-        <div className="w-[320px] self-start sticky top-20">
+        <div className="w-full lg:w-[320px] self-start lg:sticky top-20">
           <CartSummaryCard
           total={total}
           selectedCount={selectedItems.length}

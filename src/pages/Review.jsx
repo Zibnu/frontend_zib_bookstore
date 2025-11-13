@@ -108,7 +108,7 @@ function Review() {
             />
             <div className="text-left">
               <p className="text-lg font-medium">Belum Membuat Ulasan</p>
-              <p className="text-sm text-gray-500 mb-4">Belanja Buku terlebih dahulu baru tambahkan ulasan pada buku tersebut ya^_^</p>
+              <p className="text-sm text-gray-500 mb-4">Yuk, tulis ulasan produk agar membantu pengguna lain menemukan produk terbaik</p>
             </div>
           </div>
         ) : (

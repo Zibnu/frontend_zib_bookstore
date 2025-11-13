@@ -83,7 +83,7 @@ function Dashboard() {
 
   return (
     <div className='bg-[#ffffff] p-6 rounded-xl shadow'>
-      <h3 className="text-xl font-semibold mb-5">Overview</h3>
+      <h3 className="text-xl font-semibold mb-5">Dashboard</h3>
 
       <div className="grid grid-cols-4 gap-4">
         <StatCard title="Total Users" value={usersCount} icon={PiUsersThreeFill} />

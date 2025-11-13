@@ -58,18 +58,19 @@ function Login () {
   };
 
   return (
-  <div className="min-h-screen flex items-center justify-center bg-[#2C3E2F]">
-    <div className="bg-[#FBF6EE] rounded-lg shadow-lg w-[850px] flex items-center p-10">
-      <div className="flex-1 flex flex-col items-center">
+  <div className="min-h-screen flex items-center justify-center bg-[#2C3E2F] p-4">
+    <div className="bg-[#FBF6EE] rounded-lg shadow-lg w-full max-w-[850px] flex flex-col md:flex-row items-center p-6 md:p-10">
+
+      <div className="flex-1 flex flex-col items-center text-center md:flex-1 md:items-center">
         <h1 className="font-bold text-2xl mb-5">ZibBookstore</h1>
         <img 
         src={authImage}
         alt="Hero auth"
-        className="w-64 mt-6"
+        className="w-48 sm:w-56 md:w-64 mt-4"
         />
       </div>
 
-      <div className="flex-1">
+      <div className="w-full md:flex-1 mt-8 md:mt-0">
         <h2 className="text-center text-lg font-medium mb-6 text-[#333333]">Login</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input 

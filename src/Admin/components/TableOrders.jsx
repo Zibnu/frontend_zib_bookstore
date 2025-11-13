@@ -60,15 +60,15 @@ function TableOrders({orders = [],  onUpdateSuccess, currentPage, limit,onOpenUs
               return (
                 <tr key={order.id_order} className='border hover:bg-gray-50 align-top'>
                   <td className="p-3 border border-gray-300 align-middle">{(currentPage -1) * limit + (index + 1)}</td>
-                  <td className="p-3 border border-gray-300 align-middle">{order.user?.username || "-"}</td>
+                  <td className="p-3 border border-gray-300 align-middle">{order.user?.username || "Username Is Broken"}</td>
                   <td className="p-3 border border-gray-300 align-middle max-w-[340px] break-words">
                     {(order.orderItems).map((item, index) => (
                       <div key={index} className="mb-1">
-                        {item.book?.title || "Book Has Deleted"} Qty : {item.quantity}
+                        {item.book?.title || "Book Has Deleted"} Qty : {item.quantity || "Data Quantity is Broken"}
                       </div>
                     ))}
                   </td>
-                  <td className="p-3 border border-gray-300 align-middle">{formatRupiah(order.total_cents)}</td>
+                  <td className="p-3 border border-gray-300 align-middle">{formatRupiah(order.total_cents) || "Data Price Broken"}</td>
                   <td className="p-3 border border-gray-300 align-middle">
                     {/* sts dropdown */}
                     <select

@@ -55,31 +55,34 @@ function CartItemCard({item, onUpdate, onDelete, onSelect, isSelected}) {
   // if(loading) return <div className="text-center text-gray-600 text-sm">Loading Cart.....</div>
 
   return (
-    <div className='flex items-center justify-between bg-white shadow-sm p-4 rounded-xl'>
+    <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white shadow-lg sm:shadow-md p-4 rounded-xl gap-4'>
       {/* Info Buku */}
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4 flex-1">
+        <div className="flex items-center gap-3">
         <input
         type="checkbox"
         checked={isSelected}
         onChange={() => onSelect(item.id_cart)}
-        className="w-4 h-4 accent-[#da8127] cursor-pointer"
+        className="w-4 h-4 accent-[#da8127] cursor-pointer mt-1 sm:mt-0"
         />
         <img
         src={item.book.cover_path}
         alt={item.book.title}
-        className='w-20 h-28 object-cover rounded-md'
+        className='w-24 h-32 sm:w-20 sm:h-28 object-cover rounded-md'
         />
-        <div>
-          <h2 className="font-semibold text-lg text-[#333333]">{item.book.title}</h2>
+        </div>
+
+        <div  className="flex flex-col justify-between">
+          <h2 className="font-semibold text-base sm:text-lg text-[#333333]">{item.book.title}</h2>
           <p className="text-[#757575] text-sm">{item.book.author}</p>
-          <p className="text-[#da8127] font-medium mt-2">
+          <p className="text-[#da8127] font-medium mt-1 sm:mt-2">
             {formatRupiah(item.book.price_cents)}
             </p>
         </div>
       </div>
 
       {/* Kontroll Quantity + Delete */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-auto border-t sm:border-none pt-3 sm:pt-0">
         <div className="flex items-center rounded-lg ">
         <button 
         onClick={handleDelete}

@@ -46,14 +46,14 @@ function SectionBook() {
         </Link>
       </div>
 
-      <div className="flex gap-4 relative ">
-        <div className="hidden md:block w-[220px] flex-shrink-0 ">
+      <div className="flex gap-4 relative">
+        <div className="hidden md:block w-[220px] flex-shrink-0">
           <img src={IconBook} alt="Banner" className="w-full object-cover rounded-xl" />
         </div>
 
         <div className="flex-1 relative mt-12 z-20">
           {/* PC */}
-          <div className="hidden md:grid grid-cols-5 gap-4 ">
+          <div className="hidden md:grid grid-cols-5 gap-4 mr-2 ">
             { books.slice(0,10).map((book, index) => (
               <Link key={index} to={`/book/${book.id_book}`}>
                 <BookCard
@@ -66,15 +66,15 @@ function SectionBook() {
           </div>
 
           {/* Mobile */}
-          <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
-            { books.slice(0,10).map((book, index) => (
-              <div key={index} className="snap-start">
-                <BookCard 
-                image={book.cover_path}
-                title={book.title}
-                price={book.price_cents}
-                />
-              </div>
+          <div className="grid grid-cols-2 md:hidden gap-4 px-2">
+            { books.slice(0,6).map((book, index) => (
+              <Link key={index} to={`/book/${book.id_book}`}>
+              <BookCard 
+              image={book.cover_path}
+              title={book.title}
+              price={book.price_cents}
+              />
+              </Link>
             ))}
           </div>
         </div>

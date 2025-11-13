@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import Hero2 from "../assets/images/Hero1.png";
+import Hero2 from "../assets/images/newHero.png";
 import Hero1 from "../assets/images/Hero2.png";
 
 const HeroCarousel = () => {
@@ -26,7 +26,7 @@ const HeroCarousel = () => {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto mt-6">
+    <div className="w-full mx-auto mt-6 px-4">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index}>
@@ -34,7 +34,7 @@ const HeroCarousel = () => {
               <img
                 src={slide.img}
                 alt={slide.alt}
-                className="w-full h-[250px] object-cover rounded-2xl"
+                className="w-full h-[180px] sm:h-[250px] md:h-[350px] lg:h-[400px] object-cover rounded-2xl transition-all duration-200"
               />
             </div>
           </div>

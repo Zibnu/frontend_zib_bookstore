@@ -9,7 +9,7 @@ function CancelOrdersModal({ isOpen, onClose, onConfirm }) {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-white p-6 rounded-lg shadow-lg w-[90%] sm:w-[400px] text-center"
+        className="bg-white p-6 rounded-lg shadow-lg w-full sm:w-[400px] text-center"
       >
         <h3 className="text-lg font-semibold mb-2">Batalkan Pesanan</h3>
         <p className="text-gray-600 text-sm mb-6">
