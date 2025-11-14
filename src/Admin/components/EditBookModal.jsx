@@ -90,7 +90,7 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
         initial={{scale : 0.8 , opacity : 0}}
         animate={{scale : 1, opacity : 1}}
         exit={{scale : 0.8, opacity : 0}}
-        className="bg-white p-6 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-lg relative">
+        className="bg-white p-6 rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-lg ">
           <h2 className="text-lg font-semibold mb-4">Edit Book</h2>
 
           <form onSubmit={handleSubmit} className='space-y-4'>
@@ -113,17 +113,6 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               value={formData.author}
               onChange={handleChange}
               className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
-              />
-            </div>
-
-            <div>
-              <label className="text-sm font-medium">Description</label>
-              <textarea 
-              name='description'
-              value={formData.description}
-              onChange={handleChange}
-              className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
-              rows={5}
               />
             </div>
 
@@ -176,6 +165,21 @@ function EditBookModal({isOpen, onClose, onSuccess, book}) {
               className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
               />
             </div>
+
+            <div>
+              <label className="text-sm font-medium">Description</label>
+              <textarea 
+              name='description'
+              value={formData.description}
+              onChange={handleChange}
+              className='w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition'
+              rows={5}
+              />
+            </div>
+
+
+
+
 
             <div className="flex justify-end gap-2 mt-4">
               <button

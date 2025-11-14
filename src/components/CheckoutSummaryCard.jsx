@@ -30,7 +30,7 @@ function CheckoutSummaryCard({ cartItems, step, onNext }) {
       {step === "shipping" && (
         <button
           onClick={onNext}
-          className="mt-4 w-full bg-[#da8127] text-white py-2 rounded-lg hover:bg-[#b9671f] transition"
+          className="mt-4 w-full bg-[#da8127] text-white py-2 rounded-lg hover:bg-[#b9671f] cursor-pointer transition"
         >
           Lanjut Pembayaran
         </button>

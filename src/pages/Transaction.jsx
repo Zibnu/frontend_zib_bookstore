@@ -88,7 +88,7 @@ function Transaction() {
     );
 
   return (
-    <div className="min-h-screen flex bg-[#FBF6EE]">
+    <div className="min-h-screen flex bg-[#FBF6EE] pb-16 md:pb-0">
       <SideBarProfile />
       <div className="flex-1 p-6">
         <h2 className="text-2xl font-semibold mb-6">Transaksi</h2>
@@ -153,7 +153,7 @@ function Transaction() {
                   Total : {formatRupiah(order.total_cents)}
                 </p>
 
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-center">
                   {/* Sts Payment */}
                   <span
                     className={`px-2 py-1 text-xs rounded capitalize
@@ -195,7 +195,7 @@ function Transaction() {
                       setSelectedOrderId(order.id_order);
                       setShowModal(true);
                     }}
-                    className="ml-2 px-2 py-1 text-xs bg-red-500 hover:bg-red-600 text-white rounded">
+                    className="ml-2 md:px-3 py-1 md:py-2 text-xs bg-red-500 hover:bg-red-600 cursor-pointer text-white rounded">
                       Batalkan Pesanan
                     </button>
                   )}

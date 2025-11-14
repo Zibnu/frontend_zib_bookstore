@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import notFound from "../assets/images/iconBukuTidakTersedia.png"
 import BookCard from '../components/BookCard'
 import apiServices from "../utils/api"
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import toast from "react-hot-toast"
 
@@ -67,11 +67,13 @@ function Search() {
             animate={{opacity : 1, y : 0}}
             transition={{delay : 0.05}}
             >
+              <Link to={`/book/${book.id_book}`}>
               <BookCard
               image={book.cover_path}
               title={book.title}
               price={book.price_cents}
               />
+              </Link>
             </motion.div>
           ))}
         </motion.div>

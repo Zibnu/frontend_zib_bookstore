@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import Hero2 from "../assets/images/newHero.png";
-import Hero1 from "../assets/images/Hero2.png";
+import Hero1 from "../assets/images/HeroReading.png";
 
 const HeroCarousel = () => {
   const settings = {

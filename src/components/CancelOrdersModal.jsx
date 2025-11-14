@@ -13,7 +13,7 @@ function CancelOrdersModal({ isOpen, onClose, onConfirm }) {
       >
         <h3 className="text-lg font-semibold mb-2">Batalkan Pesanan</h3>
         <p className="text-gray-600 text-sm mb-6">
-          Pesanan yang dibatalkan tidak dapat dikembalikan, apakah kamu yakin untuk melanjutkan pembatalan?
+          Tindakan ini bersifat permanen, apakah kamu yakin untuk melanjutkan pembatalan?
         </p>
 
         <div className="flex justify-center gap-4">

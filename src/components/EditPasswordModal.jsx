@@ -70,7 +70,7 @@ function EditPasswordModal({onClose, onSuccess}) {
           <button
           onClick={handlePassword}
           disabled={loading}
-          className="mt-4 w-full bg-[#da8127] text-[#FFFFFF] py-2 rounded-md hover:bg-[#b9671f] transition disabled:opacity-50"
+          className="mt-4 w-full bg-[#da8127] text-[#FFFFFF] py-2 rounded-md hover:bg-[#b9671f] transition cursor-pointer disabled:opacity-50"
           >
             {loading ? "Menyimpan..." : "Simpan Perubahan"}
           </button>

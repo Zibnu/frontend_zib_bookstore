@@ -23,7 +23,7 @@ function SuccessCheckout() {
 
       <button 
       onClick={() => navigate("/")}
-      className="mt-8 px-6 py-3 bg-[#da8127] text-white rounded-xl hover:bg-[#b96a1d] transition">
+      className="mt-8 px-6 py-3 bg-[#da8127] text-white rounded-xl hover:bg-[#b96a1d] cursor-pointer transition">
         Lanjut Belanja
       </button>
     </motion.div>

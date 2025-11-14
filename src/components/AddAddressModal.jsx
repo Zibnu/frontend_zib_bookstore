@@ -132,12 +132,12 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
                 <button
                 type='button'
                 onClick={onClose}
-                className='px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition'
+                className='px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 cursor-pointer transition'
                 >
                   Batal
                 </button>
                 <button 
-                className='px-4 py-2 text-sm rounded-lg bg-[#da8127] text-white hover:bg-[#b9671f] transition'
+                className='px-4 py-2 text-sm rounded-lg bg-[#da8127] text-white hover:bg-[#b9671f] cursor-pointer transition'
                 type="submit">
                   Simpan
                 </button>

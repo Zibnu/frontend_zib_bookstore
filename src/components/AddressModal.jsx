@@ -67,12 +67,12 @@ function AddressModal({isOpen, onClose, onSelectAddress}) {
             <div className="flex justify-end gap-3 mt-4">
               <button 
               onClick={() => setIsModalOpen(true)}
-              className="px-4 py-2 bg-[#da8127] text-white text-sm rounded-lg hover:bg-[#b9671f] transition">
+              className="px-4 py-2 bg-[#da8127] text-white text-sm rounded-lg hover:bg-[#b9671f] cursor-pointer transition">
                 Buat Alamat
               </button>
               <button 
               onClick={onClose}
-              className="px-4 py-2 bg-gray-200 text-sm rounded-lg hover:bg-gray-300 transition">
+              className="px-4 py-2 bg-gray-200 text-sm rounded-lg hover:bg-gray-300 cursor-pointer transition">
                 Batal
               </button>
             </div>

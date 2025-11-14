@@ -57,7 +57,7 @@ function Address() {
   if(loading) return <div className="text-center text-gray-500 text-sm">Memuat Alamat...</div>
 
   return (
-    <div className='w-full min-h-screen bg-[#FBF6EE] flex'>
+    <div className='w-full min-h-screen bg-[#FBF6EE] flex pb-16 md:pb-0'>
       <SideBarProfile/>
       <div className="flex-1 p-6 md:p-10">
 

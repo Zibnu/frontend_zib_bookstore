@@ -117,18 +117,6 @@ function AddBookModal({ isOpen, onClose, onSuccess }) {
               </div>
 
               <div>
-                <label className="text-sm font-medium">Description</label>
-                <textarea
-                  name="description"
-                  value={formData.description}
-                  onChange={handleChange}
-                  className="w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition"
-                  rows={5}
-                  required
-                />
-              </div>
-
-              <div>
                 <label className="text-sm font-medium">Category</label>
                 <select
                   name="category_id"
@@ -183,6 +171,22 @@ function AddBookModal({ isOpen, onClose, onSuccess }) {
                   required
                 />
               </div>
+              
+              <div>
+                <label className="text-sm font-medium">Description</label>
+                <textarea
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  className="w-full border border-[#999999] rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#CCCCCC] outline-none transition"
+                  rows={5}
+                  required
+                />
+              </div>
+
+
+
+
 
               <div className="flex justify-end gap-2 mt-4">
                 <button

@@ -37,7 +37,7 @@ function PaymentSummaryCard({totalBelanja, totalPengiriman, totalPembayaran, tot
       <button 
       onClick={onPay}
       disabled={isPaying}
-      className="w-full bg-[#da8127] text-white py-3 rounded-lg hover:bg-[#b9671f] transition">
+      className="w-full bg-[#da8127] text-white py-3 rounded-lg hover:bg-[#b9671f] cursor-pointer transition">
         {isPaying ? "Memproses..." : "Bayar"} 
       </button>
     </div>

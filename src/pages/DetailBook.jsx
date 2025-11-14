@@ -252,7 +252,7 @@ function DetailBook() {
                       }
                       setOpenAddReviewModal(true);
                     }}
-                    className="px-4 py-2 border border-gray-300 rounded-lg text-[#333] hover:border-gray-500 transition"
+                    className="px-4 py-2 border border-gray-300 rounded-lg text-[#333] hover:border-gray-500 cursor-pointer transition"
                   >
                     Tulis Ulasan
                   </button>

@@ -32,7 +32,6 @@ export default function AppRouter () {
         <Route path="/book/:id" element={<DetailBook/>}></Route>
         <Route path="/search" element={<Search/>}></Route>
         <Route path="/category/:id" element={<CategoryDetail/>}></Route>
-        <Route path="/success-checkout" element={<SuccessCheckout/>} />
         <Route path="/categories" element={<Categories/>} />
         <Route path="/books/terbaru" element={<ListNewbook/>} />
 
@@ -68,6 +67,7 @@ export default function AppRouter () {
           }></Route>
       </Route>
 
+          <Route path="/success-checkout" element={<SuccessCheckout/>} />
 
       <Route path="/login" element={
         <GuestRoute>

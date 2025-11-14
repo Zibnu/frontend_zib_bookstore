@@ -61,7 +61,7 @@ function AddressSection({activeAddress, setActiveAddress}) {
         {activeAddress && (
         <button
         onClick={() => setIsModalOpen(true)}
-        className="text-[#da8127] hover:text-[#b9671f] text-sm font-medium underline transition">
+        className="text-[#da8127] hover:text-[#b9671f] text-sm font-medium cursor-pointer underline transition">
           Alamat Lainnya
         </button>
         )}
@@ -84,7 +84,7 @@ function AddressSection({activeAddress, setActiveAddress}) {
           </p>
           <button 
           onClick={() => setIsAddModalOpen(true)}
-          className="px-4 py-2 border border-gray-400 text-sm rounded-md hover:border-gray-600 transition">
+          className="px-4 py-2 border border-gray-400 text-sm rounded-md hover:border-gray-600 cursor-pointer transition">
             Buat Alamat
             </button>
         </div>

@@ -94,7 +94,7 @@ function Review() {
 
   if(loading) return <div className="text-center py-10 text-gray-400">Loading Ulasan....</div>
   return (
-    <div className="min-h-screen flex bg-[#FBF6EE]">
+    <div className="min-h-screen flex bg-[#FBF6EE] pb-16 md:pb-0 ">
       <SideBarProfile />
       <div className="flex-1 p-6">
         <h2 className="text-xl font-semibold mb-6">Ulasan Produk</h2>
