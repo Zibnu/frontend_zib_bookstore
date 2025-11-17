@@ -35,6 +35,12 @@ function Navbar() {
         </Link>
         {/* Menu DC */}
         <div className="hidden md:flex items-center gap-6">
+          <Link 
+          to="/" 
+          className="px-3 py-2 rounded-md transition duration-200 hover:text-[#da8127]"
+          >
+          Home
+          </Link>
           {/* Category */}
           <Link
             to={"/categories"}
@@ -75,6 +81,7 @@ function Navbar() {
           </div>
         </div>
       </div>
+      {/* Mode Mobile */}
       <div className="md:hidden px-4 pb-3">
           <form 
           onSubmit={handleSearch}

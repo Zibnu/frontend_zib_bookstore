@@ -23,7 +23,7 @@ function SideBarProfile() {
   return (
     <>
     {/* Sidebar PC */}
-    <div className="hidden md:flex md:w-60 h-full p-5 bg-[#FBF6EE] rounded-xl flex-col">
+    <div className="hidden md:flex md:w-60 sticky top-20 self-start p-5 bg-[#FBF6EE] rounded-xl flex-col h-fit">
       <h2 className="text-lg font-semibold mb-5 text-gray-800">Profile Saya</h2>
 
       <nav className="flex flex-col gap-3">

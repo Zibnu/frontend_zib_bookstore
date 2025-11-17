@@ -39,15 +39,15 @@ function Regis() {
   };
   
   return (
-    <div className=" min-h-screen w-screen flex  items-center justify-center bg-[#2C3E2F]">
-      <div className="bg-[#FBF6EE] rounded-lg shadow-lg w-full max-w-[850px] flex flex-col md:flex-row items-center p-6 md:p-12">
+    <div className=" min-h-screen flex items-center justify-center bg-[#2C3E2F] p-4">
+      <div className="bg-[#FBF6EE] rounded-lg shadow-lg w-full max-w-[850px] flex flex-col md:flex-row items-center p-6 md:p-10">
 
         <div className="flex-1 flex flex-col items-center text-center md:flex-1  md:items-center">
           <h1 className="font-bold text-2xl">ZibBookstore</h1>
           <img src={authImage} alt="Hero Auth" className="w-48 sm:w-56 md:w-64 mt-4" />
         </div>
 
-        <div className="w-full md:flex-1 px-5 md:px-10">
+        <div className="w-full md:flex-1 mt-8 md:mt-0">
           <h2 className="text-xl font-medium mb-6 text-center text-[#333333]">Register</h2>
 
           {error && (

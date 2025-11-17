@@ -6,31 +6,34 @@ import apiServices from "../utils/api";
 import toast from "react-hot-toast";
 import notYetReview from "../assets/images/tidak ada ulasan.png";
 import SideBarProfile from "../components/SideBarProfile";
+import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 
 function Review() {
   const [reviews, setReviews] = useState([]);
+  const [pagination, setPagination] = useState({
+    currentPage : 1,
+    totalPages : 1,
+  })
   const [editing, setEditing] = useState(null);
   const [deleting, setDeleting] = useState(null);
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
-  const fetchReviews = async () => {
+  
+  const fetchReviews = async (page = 1) => {
     try {
       const token = localStorage.getItem("token");
       if (!token) {
         toast.error("Silahkan Login Terlebih Dahulu");
         return;
       }
-
-      const { data } = await apiServices.get("/review/my-review", {
+      
+      const res = await apiServices.get(`/review/my-review?page=${page}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      setReviews(data.data || []);
+      setReviews(res.data.data.reviews || []);
+      setPagination(res.data.data.pagination)
       setLoading(false)
     } catch (error) {
       toast.error(
@@ -40,6 +43,10 @@ function Review() {
       setLoading(false)
     }
   };
+  
+  useEffect(() => {
+    fetchReviews(pagination.currentPage);
+  }, [pagination.currentPage]);
 
   const handleSave = async (updated) => {
     try {
@@ -92,6 +99,15 @@ function Review() {
     }
   };
 
+  const handleChangePage = (page) => {
+    if(page >= 1 && page <= pagination.totalPages) {
+      // fetchReviews(page);
+      setPagination((prev) => ({...prev, currentPage : page}))
+    }
+  };
+
+  // console.log(pagination)
+
   if(loading) return <div className="text-center py-10 text-gray-400">Loading Ulasan....</div>
   return (
     <div className="min-h-screen flex bg-[#FBF6EE] pb-16 md:pb-0 ">
@@ -121,6 +137,25 @@ function Review() {
                 onDelete={() => setDeleting(review)}
               />
             ))}
+          </div>
+        )}
+        {reviews.length > 0 && (
+          <div className="flex justify-center items-center gap-4 mt-6">
+            <button 
+            onClick={() => handleChangePage(pagination.currentPage - 1)}
+            disabled={pagination.currentPage === 1}
+            className="px-4 py-2 rounded-lg text-gray-600 hover:text-gray-800 cursor-pointer transition disabled:text-gray-300 disabled:cursor-not-allowed">
+              <MdNavigateBefore size={20}/>
+            </button>
+
+            <span className="text-gray-700 font-medium">Page {pagination.currentPage} of {pagination.totalPages}</span>
+
+            <button 
+            onClick={() => handleChangePage(pagination.currentPage + 1)}
+            disabled={pagination.currentPage === pagination.totalPages}
+            className="px-4 py-2 rounded-lg text-gray-600 hover:text-gray-800 cursor-pointer transition disabled:text-gray-300 disabled:cursor-not-allowed">
+              <MdNavigateNext size={20}/>
+            </button>
           </div>
         )}
       </div>

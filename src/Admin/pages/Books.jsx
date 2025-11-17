@@ -71,7 +71,7 @@ function Books() {
         />
         <button
           onClick={() => setOpenAdd(true)}
-          className="bg-[#da8127] hover:bg-[#b9671f] px-4 py-2 rounded-lg font-medium"
+          className="bg-[#da8127] hover:bg-[#b9671f] px-4 py-2 cursor-pointer rounded-lg font-medium"
         >
           <FaPlus/>
         </button>
@@ -90,7 +90,7 @@ function Books() {
         <button
           disabled={page === 1}
           onClick={() => setPage(page - 1)}
-          className="p-2 text-gray-400 hover:text-gray-600 cursor-pointer disabled:bg-gray-50 disabled:cursor-not-allowed"
+          className="p-2 text-gray-600 hover:text-gray-700 cursor-pointer disabled:bg-gray-50 disabled:text-gray-300 disabled:cursor-not-allowed"
         >
           <MdNavigateBefore size={20} />
         </button>
@@ -102,7 +102,7 @@ function Books() {
         <button
           disabled={page === totalPages}
           onClick={() => setPage(page + 1)}
-          className="p-2 text-gray-400 hover:text-gray-600 cursor-pointer disabled:bg-gray-50 disabled:cursor-not-allowed"
+          className="p-2 text-gray-600 hover:text-gray-700 cursor-pointer disabled:bg-gray-50 disabled:text-gray-300 disabled:cursor-not-allowed"
         >
           <MdNavigateNext size={20} />
         </button>

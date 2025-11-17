@@ -44,7 +44,7 @@ function CategoryList() {
   
   return (
     <div className="w-full flex justify-center mt-8">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-6">
         {categories.map((category) => (
           <Link 
           key={category.id_category}

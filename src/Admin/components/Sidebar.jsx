@@ -27,7 +27,7 @@ function Sidebar() {
   return (
     <motion.div
     animate={{ width : isOpen ? 220 : 70}}
-    className='h-screen bg-[#FBF6EE] p-3 flex flex-col rounded-xl relative'
+    className='h-screen bg-[#FBF6EE] sticky top-0 p-3 flex flex-col rounded-xl'
     transition={{ duration : 0.3, type : "spring", damping : 15}}
     >
       <button

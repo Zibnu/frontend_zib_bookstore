@@ -4,9 +4,14 @@ import { toast } from "react-hot-toast";
 import SideBarProfile from "../components/SideBarProfile";
 import TidakAdaTransaksi from "../assets/images/tidak ada transaksi.avif";
 import CancelOrdersModal from "../components/CancelOrdersModal";
+import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 
 function Transaction() {
   const [orders, setOrders] = useState([]);
+  const [pagination, setPagination] = useState({
+    currentPage : 1,
+    totalPages : 1,
+  });
   const [showModal, setShowModal] = useState(false);
   const [selectedOrderId, setSelectedOrderId] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,7 +31,7 @@ function Transaction() {
     });
   };
 
-  const fetchOrder = async () => {
+  const fetchOrder = async (page = 1) => {
     try {
       const token = localStorage.getItem("token");
       if (!token) {
@@ -34,26 +39,28 @@ function Transaction() {
         return;
       }
 
-      const res = await apiServices.get("/order/my-orders", {
+      const res = await apiServices.get(`/order/my-orders?page=${page}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const orderData = res.data.data.orders;
 
-      const updateOrders = await Promise.all(
-        orderData.map(async (order) => {
-          try {
-            const shipRes = await apiServices.get(
-              `/shipment/log-order/${order.id_order}`,
-              { headers: { Authorization: `Bearer ${token}` } }
-            );
-            return { ...order, shipment: shipRes.data.data };
-          } catch (error) {
-            console.error(error);
-            return { ...order, shipment: null };
-          }
-        })
-      );
-      setOrders(updateOrders);
+      // const updateOrders = await Promise.all(
+      //   orderData.map(async (order) => {
+      //     try {
+      //       const shipRes = await apiServices.get(
+      //         `/shipment/log-order/${order.id_order}`,
+      //         { headers: { Authorization: `Bearer ${token}` } }
+      //       );
+      //       return { ...order, shipment: shipRes.data.data };
+      //     } catch (error) {
+      //       console.error(error);
+      //       return { ...order, shipment: null };
+      //     }
+      //   })
+      // );
+      // console.log(orderData);
+      setOrders(orderData);
+      setPagination(res.data.data.pagination);
       setLoading(false);
     } catch (error) {
       toast.error(error.response?.data?.message);
@@ -62,8 +69,8 @@ function Transaction() {
   };
 
   useEffect(() => {
-    fetchOrder();
-  }, []);
+    fetchOrder(pagination.currentPage);
+  }, [pagination.currentPage]);
 
   const handleCancelOrder = async () => {
     try {
@@ -79,6 +86,13 @@ function Transaction() {
       toast.error(error.response?.data?.message || "Gagal Membatalkan Pesanan");
     }
   }
+
+  const handlePageChange = (page) => {
+    if(page >= 1 && page <= pagination.totalPages) {
+      fetchOrder(page);
+      // setPagination((prev) => ({...prev, currentPage : page}))
+    }
+  };
 
   if (loading)
     return (
@@ -142,7 +156,7 @@ function Transaction() {
                   <div className="flex-1">
                     <p className="font-medium">{item.book?.title || "Buku Telah Dihapus"}</p>
                     <p className="text-gray-600">
-                      {item.quantity} x {formatRupiah(item.price_cent)}
+                      {item.quantity || "Data telah terhapus"} x {formatRupiah(item.price_cent || "Data telah terhapus")}
                     </p>
                   </div>
                 </div>
@@ -204,6 +218,25 @@ function Transaction() {
             </div>
           ))
         )}
+      {orders.length > 0 &&(
+        <div className="flex justify-center items-center gap-4 mt-6">
+          <button 
+          onClick={() => handlePageChange(pagination.currentPage - 1)}
+          disabled={pagination.currentPage === 1}
+          className="px-4 py-2 rounded-lg text-gray-600 hover:text-gray-700 cursor-pointer transition disabled:text-gray-300 disabled:cursor-not-allowed">
+            <MdNavigateBefore size={20}/>
+          </button>
+
+          <span className="text-gray-700 font-medium">Page {pagination.currentPage} of {pagination.totalPages}</span>
+
+          <button 
+          onClick={() => handlePageChange(pagination.currentPage + 1)}
+          disabled={pagination.currentPage === pagination.totalPages}
+          className="px-4 py-2 text-gray-600 hover:text-gray-700 cursor-pointer transition disabled:text-gray-300 disabled:cursor-not-allowed">
+            <MdNavigateNext size={20}/>
+          </button>
+        </div>
+      )}
       </div>
 
       <CancelOrdersModal

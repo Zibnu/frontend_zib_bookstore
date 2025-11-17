@@ -42,7 +42,7 @@ function Categories() {
   if(loading) return <div className="text-sm text-center text-[#96A78D]">Loading data category....</div>
   return (
     <div className='min-h-screen w-full bg-gray-50 px-6 py-10'>
-      <h2 className="text-2xl font-bold mb-8">Category</h2>
+      <h2 className="text-2xl font-bold mb-8">Kategori</h2>
 
       <div className="grid grid-cols-2  md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category) => (

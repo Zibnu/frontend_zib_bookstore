@@ -66,7 +66,7 @@ function Users() {
         <button 
         disabled={page === 1}
         onClick={() => handleChangePage(false)}
-        className="p-2 text-gray-400 hover:text-gray-600 cursor-pointer disabled:bg-gray-50 disabled:cursor-not-allowed">
+        className="p-2 text-gray-600 hover:text-gray-700 cursor-pointer disabled:bg-gray-50 disabled:text-gray-300 disabled:cursor-not-allowed">
           <MdNavigateBefore size={20}/>
         </button>
 
@@ -77,7 +77,7 @@ function Users() {
         <button 
         disabled={page === totalPages}
         onClick={() => handleChangePage(true)}
-        className="p-2 text-gray-400 hover:text-gray-600 cursor-pointer disabled:bg-gray-50 disabled:cursor-not-allowed">
+        className="p-2 text-gray-600 hover:text-gray-700 cursor-pointer disabled:bg-gray-50 disabled:text-gray-300 disabled:cursor-not-allowed">
           <MdNavigateNext size={20}/>
         </button>
       </div>
