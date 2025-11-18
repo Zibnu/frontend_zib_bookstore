@@ -4,22 +4,35 @@ import { VscEye } from "react-icons/vsc";
 import toast from 'react-hot-toast';
 
 
-function TableOrders({orders = [],  onUpdateSuccess, currentPage, limit,onOpenUserModal, loading}) {
+function TableOrders({orders = [],  updateLocalStatus, currentPage, limit,onOpenUserModal, loading}) {
     const formatRupiah = (value) => {
     if (!value && value !== 0) return "0";
     const cleaned = value.toString().replace(/[^\d]/g, "");
     return "Rp" + cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
+    const allowedTransition = {
+    "processing" : ["shipped", "canceled"],
+    "shipped" : ["delivery", "canceled"],
+    "delivery" : ["delivery"],
+    "canceled" :["canceled"],
+  }
+
   const handleStatusChange = async (shipmentId, newStatus) => {
     try {
+      const shipment = orders.find(order => order.shipment.id_shipment === shipmentId)?.shipment;
+      const currentStatus = shipment.status;
+      if(!allowedTransition[currentStatus]?.includes(newStatus)) {
+        return toast.error(`Tidak bisa mengubah status dari ${currentStatus} menjadi ${newStatus}`)
+      }
+
       if(!shipmentId) return toast.error("Shipment Not Found");
       const token = localStorage.getItem("token");
       await apiServices.put(`/shipment/update/${shipmentId}`, {status : newStatus}, {
         headers : { Authorization : `Bearer ${token}`},
       });
       toast.success("Status Update");
-      onUpdateSuccess();
+      updateLocalStatus(shipmentId, newStatus);
     } catch (error) {
       console.error(error);
       toast.error(error.response?.data?.message || "Gagal Menganti Status Orders");

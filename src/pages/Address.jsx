@@ -54,6 +54,8 @@ function Address() {
     setIsDeleteOpen(true);
   }
 
+  // console.log(selectedAddress);
+
   if(loading) return <div className="text-center text-gray-500 text-sm">Memuat Alamat...</div>
 
   return (

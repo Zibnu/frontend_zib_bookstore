@@ -69,7 +69,7 @@ function Review() {
       toast.success("Ulasan Diperbaharui");
       setEditing(null);
       setLoading(false)
-      fetchReviews();
+      fetchReviews(pagination.currentPage);
     } catch (error) {
       toast.error(error.response?.data?.message || "Gagal Memperbarui Ulasan");
       console.error(error.response?.data?.message);
@@ -90,8 +90,14 @@ function Review() {
       });
       toast.success("Ulasan Berhasil Dihapus");
       setDeleting(null);
-      setLoading(false)
-      fetchReviews();
+      setLoading(false);
+
+      let newPage = pagination.currentPage;
+      if(reviews.length === 1 && pagination.currentPage > 1){
+        newPage = pagination.currentPage - 1;
+      }
+
+      fetchReviews(newPage);
     } catch (error) {
       toast.error(error.response?.data?.message || "Gagal Menghapus Ulasan");
       console.error(error.response?.data?.message);

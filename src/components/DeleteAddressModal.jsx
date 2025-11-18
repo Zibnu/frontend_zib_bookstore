@@ -13,8 +13,7 @@ function DeleteAddressModal({isOpen, onClose, onSuccess , addressId}) {
         return;
       }
 
-      await apiServices.delete("/address/delete", {
-        data : {id_address : addressId},
+      await apiServices.delete(`/address/delete/${addressId}`, {
         headers : { Authorization : `Bearer ${token}`},
       });
       toast.success("Alamat Berhasil Dihapus");
@@ -51,16 +50,16 @@ function DeleteAddressModal({isOpen, onClose, onSuccess , addressId}) {
               Apakah Kamu Yakin Ingin Menghapus Alamat Ini? Alamat Yang Dihapus Tidak Dapat Dikembalikan
             </p>
 
-            <div className="flex justify-end gap-3">
+            <div className="flex justify-center gap-3">
               <button 
               onClick={onClose}
-              className='px-4 py-2 text-sm rounded-lg bg-gray-200 hover:bg-gray-300 transition'
+              className='px-4 py-2 text-sm rounded-lg cursor-pointer bg-gray-200 hover:bg-gray-300 transition'
               >
                 Batal
               </button>
               <button 
               onClick={handleDelete}
-              className="px-4 py-2 text-sm rounded-lg bg-red-600 text-white hover:bg-red-700 transition">
+              className="px-4 py-2 text-sm rounded-lg cursor-pointer bg-red-600 text-white hover:bg-red-700 transition">
                 Hapus
               </button>
             </div>

@@ -76,6 +76,23 @@ function Orders() {
     if(!next && page > 1) setPage((p) => p - 1)
   }
 
+  const updateLocalStatus = (shipmentId, newStatus) => {
+    setOrders(prevOrders =>
+      prevOrders.map(order => {
+        if(order.shipment?.id_shipment === shipmentId){
+          return {
+            ...order,
+            shipment : {
+              ...order.shipment,
+              status : newStatus,
+            },
+          };
+        }
+        return order;
+      })
+    )
+  }
+
   const handleStatusChange = (e) => {
     setShipmentStatus(e.target.value);
     setPage(1);
@@ -110,7 +127,7 @@ function Orders() {
       <TableOrders
       orders={orders}
       // shipmentsMap={shipmentsMap}
-      onUpdateSuccess={fetchData}
+      updateLocalStatus={updateLocalStatus}
       onOpenUserModal={handleOpenUserModal}
       loading={loading}
       currentPage={currentPage}

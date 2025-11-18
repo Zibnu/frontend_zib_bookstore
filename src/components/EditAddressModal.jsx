@@ -40,7 +40,12 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
         toast.error("Silahkan Login Terlebih Dahulu");
         return;
       }
-      await apiServices.put("/address/update", formData, {
+
+      if(!address.id_address) {
+        toast.error("ID Address Tidak Ditemukan");
+        return;
+      }
+      await apiServices.put(`/address/update/${address.id_address}`, formData, {
         headers : {Authorization : `Bearer ${token}`}
       })
       toast.success("Alamat Berhasil Diperbarui");
@@ -86,7 +91,7 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
               />
 
               <input 
-              type="text" 
+              type="number" 
               name='phone'
               placeholder='No. Telepon'
               value={formData.phone}
@@ -106,7 +111,7 @@ function EditAddressModal({isOpen, onClose, address, onSuccess}) {
               />
 
               <input 
-              type="text" 
+              type="number" 
               name='postal_code'
               placeholder='Kode Pos'
               value={formData.postal_code}

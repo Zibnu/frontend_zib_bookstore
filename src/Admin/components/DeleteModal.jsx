@@ -58,13 +58,13 @@ function DeleteModal({isOpen, onClose, onSuccess}) {
             <div className="flex justify-center gap-3 mt-6">
               <button
               onClick={onClose}
-              className='px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg cursor-pointer transition'
+              className='px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg cursor-pointer transition'
               >
                 Cancel
               </button>
               <button
               onClick={handleDelete}
-              className='px-4 py-2 bg-red-400 hover:bg-red-500 text-white rounded-lg cursor-pointer transition'
+              className='px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg cursor-pointer transition'
               >
                 Delete
               </button>

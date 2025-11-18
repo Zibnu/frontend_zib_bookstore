@@ -90,7 +90,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
               />
 
               <input 
-              type="text" 
+              type="number" 
               name='phone'
               placeholder='No. Telepon'
               value={formData.phone}
@@ -110,7 +110,7 @@ function AddAddressModal({isOpen, onClose, onSucces}) {
               />
 
               <input 
-              type="text" 
+              type="number" 
               name='postal_code'
               placeholder='Kode Pos'
               value={formData.postal_code}
