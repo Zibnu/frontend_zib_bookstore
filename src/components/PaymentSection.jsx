@@ -19,7 +19,8 @@ function PaymentSection({selectedItems, address}) {
   );
 
   const totalPengiriman = 10000;
-  const totalPembayaran = totalBelanja + totalPengiriman;
+  const diskonPengiriman = 10000;
+  const totalPembayaran = totalBelanja + (totalPengiriman - diskonPengiriman);
 
   const handlePay = async () => {
     if(!selectedMethod) {
@@ -114,6 +115,7 @@ function PaymentSection({selectedItems, address}) {
         totalBelanja={totalBelanja}
         totalPengiriman={totalPengiriman}
         totalPembayaran={totalPembayaran}
+        diskonPengiriman={diskonPengiriman}
         totalBarang={selectedItems.length}
         address={address}
         onPay={handlePay}

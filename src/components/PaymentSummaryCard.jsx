@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PaymentSummaryCard({totalBelanja, totalPengiriman, totalPembayaran, totalBarang, address, onPay, isPaying}) {
+function PaymentSummaryCard({totalBelanja, totalPengiriman, diskonPengiriman,totalPembayaran, totalBarang, address, onPay, isPaying}) {
     const formatRupiah = (value) => {
     if (!value && value !== 0) return "0";
     const cleaned = value.toString().replace(/[^\d]/g, "");
@@ -24,6 +24,7 @@ function PaymentSummaryCard({totalBelanja, totalPengiriman, totalPembayaran, tot
       <div className="text-sm text-gray-700 space-y-2">
         <p>Total Belanja : {formatRupiah(totalBelanja)}</p>
         <p>Total Pengiriman : {formatRupiah(totalPengiriman)}</p>
+        <p className='text-red-500'>Diskon Pengiriman : {formatRupiah(diskonPengiriman)}</p>
       </div>
 
       <hr className="my-3" />

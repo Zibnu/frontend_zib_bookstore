@@ -63,28 +63,28 @@ function DetailBookModal({ isOpen, onClose }) {
             />
 
             <p>
-            <span className="text-xl font-semibold">Title : </span>
+            <span className="text-xl font-medium">Title : </span>
             {book.title}
             </p>
             <p>
-              <span className="text-lg font-semibold">Author:</span>{" "}
+              <span className="text-lg font-medium">Author:</span>{" "}
               {book.author}
             </p>
             <p>
-              <span className="text-lg font-semibold">Category:</span>
+              <span className="text-lg font-medium">Category:</span>
               {book.category?.name_category}
             </p>
             <p>
-              <span className="text-lg font-semibold">Price:</span>
+              <span className="text-lg font-medium">Price:</span>
               {formatRupiah(book.price_cents)}
             </p>
             <p>
-              <span className="text-lg font-semibold">Stock:</span>
+              <span className="text-lg font-medium">Stock:</span>
               {book.stock}
             </p>
 
             <div className="mt-4">
-              <p className="font-semibold mb-1">Description:</p>
+              <p className="font-medium mb-1">Description:</p>
               <p className="text-sm text-gray-700">{book.description}</p>
             </div>
           </motion.div>

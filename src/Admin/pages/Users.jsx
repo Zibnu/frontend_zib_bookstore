@@ -53,11 +53,11 @@ function Users() {
     animate={{opacity : 1, y : 0}}
     transition={{duration : 0.35}}
     >
-      <h3 className="text-xl font-semibold mb-4">All Users</h3>
+      <h3 className="text-xl font-semibold mb-4">Registered Users</h3>
 
       <TableUsers
       users={users}
-      loading={loading}
+      // loading={loading}
       currentPage={currentPage}
       limit={limit}
       />

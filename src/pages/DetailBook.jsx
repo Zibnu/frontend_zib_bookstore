@@ -113,6 +113,7 @@ function DetailBook() {
   const handleAddToCart = async () => {
     if (!token) {
       navigate("/login");
+      toast.error("Silahkan Login Terlebih Dahulu");
       return;
     }
 

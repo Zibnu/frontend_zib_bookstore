@@ -8,7 +8,7 @@ function TableOrders({orders = [],  updateLocalStatus, currentPage, limit,onOpen
     const formatRupiah = (value) => {
     if (!value && value !== 0) return "0";
     const cleaned = value.toString().replace(/[^\d]/g, "");
-    return "Rp" + cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return "Rp " + cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
     const allowedTransition = {
@@ -77,11 +77,11 @@ function TableOrders({orders = [],  updateLocalStatus, currentPage, limit,onOpen
                   <td className="p-3 border border-gray-300 align-middle max-w-[340px] break-words">
                     {(order.orderItems).map((item, index) => (
                       <div key={index} className="mb-1">
-                        {item.book?.title || "Book Has Deleted"} Qty : {item.quantity || "Data Quantity is Broken"}
+                        <b>{item.quantity || "Data Quantity is Broken"}x</b> {item.book?.title|| "Book Has Deleted"}
                       </div>
                     ))}
                   </td>
-                  <td className="p-3 border border-gray-300 align-middle">{formatRupiah(order.total_cents) || "Data Price Broken"}</td>
+                  <td className="p-3 border border-gray-300 align-middle text-right">{formatRupiah(order.total_cents) || "Data Price Broken"}</td>
                   <td className="p-3 border border-gray-300 align-middle">
                     {/* sts dropdown */}
                     <select
