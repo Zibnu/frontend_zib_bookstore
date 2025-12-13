@@ -122,15 +122,15 @@ function Review() {
         <h2 className="text-xl font-semibold mb-6">Ulasan Produk</h2>
 
         {reviews.length === 0 ? (
-          <div className="bg-white p-10 rounded-xl shadow flex items-center justify-center text-center gap-10">
+          <div className="bg-white p-10 rounded-xl shadow flex flex-col md:flex-row items-center justify-center text-center gap-10">
             <img
               src={notYetReview}
               alt="Belum Ada ulasan"
               className="w-3xs h-50 object-contain opacity-70 mb-4"
             />
-            <div className="text-left">
+            <div className="text-center md:text-left">
               <p className="text-lg font-medium">Belum Membuat Ulasan</p>
-              <p className="text-sm text-gray-500 mb-4">Yuk, tulis ulasan produk agar membantu pengguna lain menemukan produk terbaik</p>
+              <p className="text-sm text-gray-500 mb-4 leading-relaxed">Yuk, tulis ulasan produk agar membantu pengguna lain menemukan produk terbaik</p>
             </div>
           </div>
         ) : (

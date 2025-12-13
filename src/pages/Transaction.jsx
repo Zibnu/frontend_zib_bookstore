@@ -108,20 +108,20 @@ function Transaction() {
         <h2 className="text-2xl font-semibold mb-6">Transaksi</h2>
 
         {orders.length === 0 ? (
-          <div className="bg-white p-10 rounded-xl shadow flex items-center justify-center text-center gap-10">
+          <div className="bg-white p-10 rounded-xl shadow flex flex-col md:flex-row items-center justify-center text-center gap-10">
             <img
               src={TidakAdaTransaksi}
               alt="Belum Ada Transaksi"
               className="w-3xs h-auto object-contain opacity-70 mb-4"
             />
-            <div className="text-left">
+            <div className="text-center md:text-left">
               <p className="text-lg font-medium">Belum Ada Transaksi</p>
               <p className="text-sm text-gray-500 mb-4">
                 Yuk Mulai Berbelanja Buku Favorit Kamu!
               </p>
               <a
                 href="/"
-                className="px-4 py-2 bg-[#da8127] text-white rounded-md hover:bg-[#b9671f]"
+                className="px-2 md:px-4 py-2 bg-[#da8127] text-white rounded-md hover:bg-[#b9671f]"
               >
                 Mulai Belanja
               </a>
